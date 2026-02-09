@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-montserrat);
+  --font-serif: var(--font-cormorant);
+
+  /* White & Beige Theme */
+  --color-background: #FAFAF9;
+  /* Warm White/Stone-50 */
+  --color-beige: #E7E5E4;
+  /* Stone-200 */
+  --color-beige-light: #F5F5F4;
+  /* Stone-100 */
+  --color-primary: #57534E;
+  /* Stone-600 (Text/Headings) */
+  --color-secondary: #D6D3D1;
+  /* Stone-300 */
+  --color-accent: #B45309;
+  /* Amber-700 (Subtle pop) or Gold */
+
+  --color-text: #44403C;
+  /* Stone-700 */
+  --color-white: #FFFFFF;
+
+  /* Soft Shadows */
+  --shadow-soft: 8px 8px 16px #E6DEDD, -8px -8px 16px #FFFFFF;
+  --shadow-inner-soft: inset 4px 4px 8px #E6DEDD, inset -4px -4px 8px #FFFFFF;
+  --shadow-floating: 0 10px 30px -10px rgba(168, 213, 186, 0.4);
+
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+}
+
+:root {
+  --background: #FFF5F5;
+  --foreground: #4A4A4A;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Utilities */
+.text-gold {
+  color: var(--color-accent);
+}
+
+.bg-sage {
+  background-color: var(--color-secondary);
+}
+
+.bg-soft-white {
+  background-color: var(--color-background);
+}
+
+.shadow-soft-ui {
+  box-shadow: var(--shadow-soft);
+}
+
+.rounded-soft {
+  border-radius: var(--radius-xl);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--color-primary);
+}
