@@ -35,7 +35,7 @@ const rooms = [
     priceNote: "",
     guests: "Familien",
     size: "ca. 20 m²",
-    image: "/images/room.jpg",
+    image: "/images/bathroom.jpg",
     description:
       "Für Familien bieten wir individuelle Lösungen an. Sprechen Sie uns einfach an — wir finden die passende Zimmerkombination.",
     extras: ["Klimaanlage", "Auf Anfrage", "Ebenerdige Dusche"],

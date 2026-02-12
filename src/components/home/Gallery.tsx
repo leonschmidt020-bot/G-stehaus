@@ -5,11 +5,11 @@ import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 
 const images = [
-  { src: "/images/exterior.jpg", alt: "Gästehaus mit Garten im Sommer", span: "md:col-span-2 md:row-span-2" },
-  { src: "/images/room.jpg", alt: "Doppelzimmer mit Eichenparkett" },
-  { src: "/images/breakfast.jpg", alt: "Frühstück von der Bäckerei Schätzle" },
-  { src: "/images/room.jpg", alt: "Einzelzimmer mit Schreibtisch" },
-  { src: "/images/exterior.jpg", alt: "Blick auf die Weinberge vom Garten", span: "md:col-span-2" },
+  { src: "/images/exterior.jpg", alt: "Das Gästehaus von außen", span: "md:col-span-2 md:row-span-2" },
+  { src: "/images/room.jpg", alt: "Zimmer mit bequemem Bett und Flachbild-TV" },
+  { src: "/images/bathroom.jpg", alt: "Helles Badezimmer mit Dachfenster" },
+  { src: "/images/breakfast.jpg", alt: "Gemeinschaftsbereich im Gästehaus" },
+  { src: "/images/exterior.jpg", alt: "Eingangsbereich des Gästehauses", span: "md:col-span-2" },
 ];
 
 export default function Gallery() {
