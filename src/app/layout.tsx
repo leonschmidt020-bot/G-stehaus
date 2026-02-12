@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Montserrat } from "next/font/google";
+import { Noto_Serif, Montserrat } from "next/font/google";
 import "./globals.css";
 import React from "react";
 
@@ -8,7 +8,7 @@ import Footer from "@/components/layout/Footer";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import GrainOverlay from "@/components/ui/GrainOverlay";
 
-const playfair = Playfair_Display({
+const notoSerif = Noto_Serif({
   subsets: ["latin"],
   variable: "--font-playfair",
   weight: ["400", "500", "600", "700"],
@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${playfair.variable} ${montserrat.variable} dark scroll-smooth`}
+      className={`${notoSerif.variable} ${montserrat.variable} dark scroll-smooth`}
     >
       <body className="antialiased flex flex-col min-h-screen bg-[var(--background)] text-[var(--foreground)]">
         <SmoothScrollProvider>

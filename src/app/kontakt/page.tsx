@@ -10,7 +10,7 @@ export default function ContactPage() {
             Schreiben Sie uns
           </h1>
           <p className="text-[var(--color-text)] mt-4 font-light leading-relaxed text-lg">
-            Ob Buchungsanfrage, Frage zur Anreise oder Sonderwunsch — wir antworten
+            Ob Buchungsanfrage, Frage zur Anreise oder Sonderwunsch, wir antworten
             in der Regel innerhalb weniger Stunden. Oder rufen Sie einfach an.
           </p>
         </div>

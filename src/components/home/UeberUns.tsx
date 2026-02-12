@@ -45,7 +45,7 @@ export default function UeberUns() {
           <div className="w-full md:w-1/2">
             <ParallaxImage
               src="/images/exterior.jpg"
-              alt="Das Gästehaus von außen — ein ruhiges Haus mit Garten"
+              alt="Das Gästehaus von außen"
               speed={0.2}
               className="aspect-[4/3] rounded-[var(--radius-xl)]"
             />
@@ -57,7 +57,7 @@ export default function UeberUns() {
             <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-lg mb-4">
               Das Gästehaus in Eimeldingen bietet sechs gemütliche Zimmer für
               Geschäftsreisende, Messebesucher und Urlauber. Unkompliziert, sauber
-              und persönlich — so wie es sein soll.
+              und persönlich, so wie es sein soll.
             </p>
             <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-lg">
               Alle Zimmer sind mit Klimaanlage, Flachbild-TV, eigenem Bad mit
@@ -74,7 +74,7 @@ export default function UeberUns() {
             Zwischen Basel und dem Schwarzwald
           </h3>
           <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-lg mb-4">
-            Eimeldingen liegt direkt am Dreiländereck — die Schweizer Grenze, Basel
+            Eimeldingen liegt direkt am Dreiländereck. Die Schweizer Grenze, Basel
             und Lörrach sind nur wenige Minuten entfernt. Die Autobahnauffahrt A5 ist
             quasi vor der Tür, kostenlose Parkplätze stehen direkt am Haus.
           </p>
@@ -101,7 +101,7 @@ export default function UeberUns() {
             <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-lg mb-4">
               Jedes Zimmer ist ca. 20 m² groß und als Einzel-, Doppel- oder
               Familienzimmer buchbar. Bequeme Betten, Klimaanlage, Flachbild-TV,
-              eigenes Bad mit ebenerdiger Dusche — und bei einigen Zimmern ein Balkon.
+              eigenes Bad mit ebenerdiger Dusche. Einige Zimmer haben einen Balkon.
             </p>
             <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-lg">
               Im Haus stehen Kaffee, Tee und ein Kühlschrank bereit. Frühstück bieten

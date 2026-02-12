@@ -17,7 +17,7 @@ const reviews = [
     date: "September 2024",
   },
   {
-    text: "Schönes, ruhiges Zimmer mit Klimaanlage — im Sommer sehr angenehm. Die ebenerdige Dusche ist top. Bäckerei und Supermarkt sind gleich ums Eck.",
+    text: "Schönes, ruhiges Zimmer mit Klimaanlage, im Sommer sehr angenehm. Die ebenerdige Dusche ist top. Bäckerei und Supermarkt sind gleich ums Eck.",
     name: "Markus B.",
     source: "Google",
     date: "August 2024",

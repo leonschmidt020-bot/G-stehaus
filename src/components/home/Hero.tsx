@@ -78,7 +78,7 @@ export default function Hero() {
       >
         <Image
           src="/images/exterior.jpg"
-          alt="Das Gästehaus Eimeldingen — Außenansicht"
+          alt="Das Gästehaus Eimeldingen Außenansicht"
           fill
           priority
           sizes="100vw"
@@ -105,7 +105,7 @@ export default function Hero() {
 
           <div ref={subtextRef}>
             <p className="text-[var(--color-primary)]/70 text-lg md:text-xl font-light max-w-lg mb-10 leading-relaxed">
-              Sechs gemütliche Zimmer in Eimeldingen — direkt an der A5,
+              Sechs gemütliche Zimmer in Eimeldingen, direkt an der A5,
               10 Minuten von Basel, mitten im Dreiländereck.
             </p>
 

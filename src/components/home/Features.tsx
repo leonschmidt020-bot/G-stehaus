@@ -52,7 +52,7 @@ export default function Features() {
           <div data-feature>
             <h3 className="text-lg font-serif text-[var(--color-primary)] mb-2">Kaffee & Tee, rund um die Uhr</h3>
             <p className="text-[var(--color-text)] font-light leading-relaxed text-[15px]">
-              Im Flur steht unsere Kaffeestation — bedienen Sie sich, wann immer Sie möchten.
+              Im Flur steht unsere Kaffeestation. Bedienen Sie sich, wann immer Sie möchten.
               Geht aufs Haus.
             </p>
           </div>
@@ -60,7 +60,7 @@ export default function Features() {
           <div data-feature>
             <h3 className="text-lg font-serif text-[var(--color-primary)] mb-2">Kein Frühstück, aber alles nah</h3>
             <p className="text-[var(--color-text)] font-light leading-relaxed text-[15px]">
-              Frühstück bieten wir nicht an — dafür sind Bäckerei, Metzgerei und
+              Frühstück bieten wir nicht an, dafür sind Bäckerei, Metzgerei und
               Supermarkt fußläufig erreichbar. Im Haus stehen Kaffee, Tee und ein
               Kühlschrank bereit.
             </p>
@@ -78,14 +78,14 @@ export default function Features() {
             <h3 className="text-lg font-serif text-[var(--color-primary)] mb-2">Check-in flexibel</h3>
             <p className="text-[var(--color-text)] font-light leading-relaxed text-[15px]">
               Regulär ab 15 Uhr. Wenn Sie früher oder später kommen, sagen Sie
-              einfach Bescheid — wir finden eine Lösung.
+              einfach Bescheid, wir finden eine Lösung.
             </p>
           </div>
 
           <div data-feature>
             <h3 className="text-lg font-serif text-[var(--color-primary)] mb-2">Bezahlung unkompliziert</h3>
             <p className="text-[var(--color-text)] font-light leading-relaxed text-[15px]">
-              Bar, EC-Karte oder Kreditkarte — wie es Ihnen am liebsten ist.
+              Bar, EC-Karte oder Kreditkarte, wie es Ihnen am liebsten ist.
               Bitte beachten Sie: Haustiere können wir leider nicht aufnehmen.
             </p>
           </div>
