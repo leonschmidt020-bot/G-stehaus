@@ -23,7 +23,9 @@ export default function FloatingCallButton() {
         <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16">
           <Phone
             className="w-6 h-6 sm:w-7 sm:h-7 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12"
-            strokeWidth={2}
+            strokeWidth={1.5}
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </div>
 
