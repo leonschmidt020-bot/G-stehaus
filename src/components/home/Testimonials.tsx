@@ -5,22 +5,22 @@ import { gsap } from "@/lib/gsap";
 
 const reviews = [
   {
-    text: "Wir waren zur Messe in Basel und hatten ein super ruhiges Zimmer. Gute Lage direkt an der A5, in 10 Minuten ist man in Basel. Kommen gerne wieder.",
-    name: "Stefan K.",
+    text: "Schönes hochwertiges Hotel, bzw. Gästehaus. Die Chefin gibt sich größte Mühe die Gäste gemütlich und zufrieden unterzubringen. Sehr sauber gehaltene große Zimmer mit moderner Ausstattung.",
+    name: "Roman Tropmann",
     source: "Google",
-    date: "Oktober 2024",
+    date: "Local Guide",
   },
   {
-    text: "Sauber, unkompliziert, nette Leute. Genau das was man braucht wenn man geschäftlich unterwegs ist. Parkplatz vor der Tür ist Gold wert.",
-    name: "Claudia M.",
-    source: "Booking.com",
-    date: "September 2024",
+    text: "Ich war im Gästehaus Eimeldingen und es war sehr schön. Freundliche Gastgeberin, schönes, sauberes Zimmer. Zum Abschied gab es noch eine Flasche regionales Bier. Liebe Grüße aus Sachsen!",
+    name: "Tim Scholz",
+    source: "Google",
+    date: "Local Guide",
   },
   {
-    text: "Schönes, ruhiges Zimmer mit Klimaanlage, im Sommer sehr angenehm. Die ebenerdige Dusche ist top. Bäckerei und Supermarkt sind gleich ums Eck.",
-    name: "Markus B.",
+    text: "Sehr sauber. Gut gelegen für Ausflüge in die Schweiz.",
+    name: "Bernd Grimm",
     source: "Google",
-    date: "August 2024",
+    date: "Local Guide",
   },
 ];
 
