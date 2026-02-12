@@ -1,39 +1,69 @@
+"use client";
+
+import OrganicButton from "@/components/ui/OrganicButton";
+
 export default function ContactForm() {
   return (
-    <section className="py-24 bg-white relative">
-      <div className="container mx-auto px-6">
-         <div className="max-w-4xl mx-auto bg-soft-white rounded-[2.5rem] p-12 shadow-soft-ui relative overflow-hidden">
-            
-            {/* Decor */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-[80px] pointer-events-none" />
+    <div className="glass-white rounded-[var(--radius-xl)] p-8 md:p-10 relative overflow-hidden">
+      {/* Decorative blur */}
+      <div className="absolute top-0 right-0 w-48 h-48 bg-sage/10 rounded-full blur-[80px] pointer-events-none" />
 
-            <div className="text-center mb-12 relative z-10">
-                <span className="text-secondary font-sans font-semibold tracking-wider uppercase text-sm">Kontakt</span>
-                <h2 className="text-4xl font-serif text-primary mt-3">Wir sind für Sie da</h2>
+      <div className="relative z-10">
+        <h2 className="text-2xl font-serif text-[var(--color-primary)] mb-8">
+          Nachricht senden
+        </h2>
+
+        <form className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-sm font-medium text-earth-muted mb-2">
+                Name
+              </label>
+              <input
+                type="text"
+                className="w-full px-5 py-3.5 rounded-[var(--radius-md)] bg-[var(--surface)] border border-[var(--color-glass-border)] focus:ring-2 focus:ring-sage/40 focus:border-sage outline-none transition-all text-[var(--color-primary)] placeholder:text-earth-muted/50"
+                placeholder="Ihr Name"
+              />
             </div>
+            <div>
+              <label className="block text-sm font-medium text-earth-muted mb-2">
+                E-Mail
+              </label>
+              <input
+                type="email"
+                className="w-full px-5 py-3.5 rounded-[var(--radius-md)] bg-[var(--surface)] border border-[var(--color-glass-border)] focus:ring-2 focus:ring-sage/40 focus:border-sage outline-none transition-all text-[var(--color-primary)] placeholder:text-earth-muted/50"
+                placeholder="ihre@email.com"
+              />
+            </div>
+          </div>
 
-            <form className="relative z-10 grid md:grid-cols-2 gap-8">
-                <div className="col-span-1">
-                    <label className="block text-sm font-medium text-neutral-500 mb-2">Name</label>
-                    <input type="text" className="w-full px-6 py-4 rounded-xl bg-white border-none shadow-inner-soft focus:ring-2 focus:ring-secondary/50 outline-none transition-all" placeholder="Ihr Name" />
-                </div>
-                <div className="col-span-1">
-                     <label className="block text-sm font-medium text-neutral-500 mb-2">E-Mail</label>
-                    <input type="email" className="w-full px-6 py-4 rounded-xl bg-white border-none shadow-inner-soft focus:ring-2 focus:ring-secondary/50 outline-none transition-all" placeholder="ihre@email.com" />
-                </div>
-                <div className="col-span-full">
-                     <label className="block text-sm font-medium text-neutral-500 mb-2">Nachricht</label>
-                    <textarea rows={4} className="w-full px-6 py-4 rounded-xl bg-white border-none shadow-inner-soft focus:ring-2 focus:ring-secondary/50 outline-none transition-all resize-none" placeholder="Wie können wir Ihnen helfen?" />
-                </div>
-                
-                <div className="col-span-full text-center mt-4">
-                    <button className="px-12 py-4 bg-primary text-white rounded-full font-medium shadow-floating hover:bg-primary/90 hover:scale-105 transition-all duration-300">
-                        Nachricht Senden
-                    </button>
-                </div>
-            </form>
-         </div>
+          <div>
+            <label className="block text-sm font-medium text-earth-muted mb-2">
+              Betreff
+            </label>
+            <input
+              type="text"
+              className="w-full px-5 py-3.5 rounded-[var(--radius-md)] bg-[var(--surface)] border border-[var(--color-glass-border)] focus:ring-2 focus:ring-sage/40 focus:border-sage outline-none transition-all text-[var(--color-primary)] placeholder:text-earth-muted/50"
+              placeholder="Buchungsanfrage, Frage, ..."
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-earth-muted mb-2">
+              Nachricht
+            </label>
+            <textarea
+              rows={5}
+              className="w-full px-5 py-3.5 rounded-[var(--radius-md)] bg-[var(--surface)] border border-[var(--color-glass-border)] focus:ring-2 focus:ring-sage/40 focus:border-sage outline-none transition-all resize-none text-[var(--color-primary)] placeholder:text-earth-muted/50"
+              placeholder="Wie können wir Ihnen helfen?"
+            />
+          </div>
+
+          <OrganicButton type="submit" variant="primary">
+            Nachricht senden
+          </OrganicButton>
+        </form>
       </div>
-    </section>
+    </div>
   );
 }

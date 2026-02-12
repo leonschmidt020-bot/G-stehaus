@@ -1,53 +1,83 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
-    const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
 
-    return (
-        <footer className="bg-neutral-900 text-white py-16">
-            <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
-                {/* Brand & Description */}
-                <div className="space-y-4">
-                    <h3 className="text-2xl font-serif font-bold tracking-wide">Das Gästehaus</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-                        Erleben Sie erholsame Tage im Markgräflerland. Unser familiengeführtes Haus bietet Komfort und persönliche Gastfreundschaft.
-                    </p>
-                </div>
+  return (
+    <footer className="bg-earth text-cream/80 py-[clamp(3rem,8vh,5rem)]">
+      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+        {/* Brand */}
+        <div className="space-y-5">
+          <h3 className="text-xl font-serif font-semibold text-cream tracking-wide">
+            Das Gästehaus
+          </h3>
+          <p className="text-cream/50 text-sm leading-relaxed max-w-xs font-light">
+            Haltinger Weg 3, 79591 Eimeldingen.
+            Direkt an der A5, 10 Minuten von Basel.
+          </p>
+        </div>
 
-                {/* Quick Links */}
-                <div className="space-y-4">
-                    <h4 className="text-lg font-medium text-gray-200 uppercase tracking-wider text-sm">Navigation</h4>
-                    <ul className="space-y-2 text-gray-400">
-                        <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-                        <li><Link href="/zimmer" className="hover:text-primary transition-colors">Zimmer & Preise</Link></li>
-                        <li><Link href="/kontakt" className="hover:text-primary transition-colors">Kontakt & Anfahrt</Link></li>
-                    </ul>
-                </div>
+        {/* Navigation */}
+        <div className="space-y-5">
+          <h4 className="text-[11px] font-medium text-sage uppercase tracking-[0.2em]">
+            Seiten
+          </h4>
+          <ul className="space-y-3 text-cream/50">
+            <li>
+              <Link href="/" className="hover:text-sage transition-colors duration-300 text-sm">
+                Startseite
+              </Link>
+            </li>
+            <li>
+              <Link href="/zimmer" className="hover:text-sage transition-colors duration-300 text-sm">
+                Zimmer & Preise
+              </Link>
+            </li>
+            <li>
+              <Link href="/kontakt" className="hover:text-sage transition-colors duration-300 text-sm">
+                Kontakt & Anfahrt
+              </Link>
+            </li>
+          </ul>
+        </div>
 
-                {/* Contact Info */}
-                <div className="space-y-4">
-                    <h4 className="text-lg font-medium text-gray-200 uppercase tracking-wider text-sm">Kontakt</h4>
-                    <ul className="space-y-3 text-gray-400">
-                        <li className="flex items-start space-x-3">
-                            <MapPin size={18} className="mt-1 flex-shrink-0 text-primary" />
-                            <span>Hauptstraße 12<br />79591 Eimeldingen</span>
-                        </li>
-                        <li className="flex items-center space-x-3">
-                            <Phone size={18} className="flex-shrink-0 text-primary" />
-                            <a href="tel:+497621123456" className="hover:text-white transition-colors">+49 7621 123456</a>
-                        </li>
-                        <li className="flex items-center space-x-3">
-                            <Mail size={18} className="flex-shrink-0 text-primary" />
-                            <a href="mailto:info@gaestehaus-eimeldingen.de" className="hover:text-white transition-colors">info@gaestehaus-eimeldingen.de</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        {/* Contact */}
+        <div className="space-y-5">
+          <h4 className="text-[11px] font-medium text-sage uppercase tracking-[0.2em]">
+            Kontakt
+          </h4>
+          <ul className="space-y-3 text-cream/50 text-sm font-light">
+            <li>
+              <a
+                href="tel:+4976214248233"
+                className="hover:text-sage transition-colors duration-300"
+              >
+                +49 (0) 7621 4 24 82 33
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:info@dasgaestehaus-eimeldingen.de"
+                className="hover:text-sage transition-colors duration-300"
+              >
+                info@dasgaestehaus-eimeldingen.de
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-            <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-                <p>&copy; {currentYear} Das Gästehaus Eimeldingen. Alle Rechte vorbehalten.</p>
-            </div>
-        </footer>
-    );
+      <div className="border-t border-cream/5 mt-12 pt-8 text-cream/25 text-xs font-light tracking-wide container mx-auto px-6 flex flex-col sm:flex-row justify-between gap-4">
+        <p>&copy; {currentYear} Das Gästehaus Eimeldingen</p>
+        <div className="flex gap-6">
+          <Link href="/impressum" className="hover:text-cream/50 transition-colors">
+            Impressum
+          </Link>
+          <Link href="/datenschutz" className="hover:text-cream/50 transition-colors">
+            Datenschutz
+          </Link>
+        </div>
+      </div>
+    </footer>
+  );
 }

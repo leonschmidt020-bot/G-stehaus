@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Montserrat } from "next/font/google";
+import { Playfair_Display, Montserrat } from "next/font/google";
 import "./globals.css";
-import React from 'react';
+import React from "react";
 
-const cormorant = Cormorant_Garamond({
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import GrainOverlay from "@/components/ui/GrainOverlay";
+
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-cormorant",
+  variable: "--font-playfair",
   weight: ["400", "500", "600", "700"],
   display: "swap",
+  adjustFontFallback: true,
 });
 
 const montserrat = Montserrat({
@@ -18,12 +24,10 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Das Gästehaus Eimeldingen | Erholung im Markgräflerland",
-  description: "Entdecken Sie unser familäres Gästehaus. Modernes Design, ruhige Lage und bester Service.",
+  title: "Das Gästehaus Eimeldingen | Zimmer nahe Basel & A5",
+  description:
+    "6 gemütliche Zimmer mit Klimaanlage, WLAN und Parkplatz in Eimeldingen. Direkt an der A5, 10 Min. von Basel. Einzel ab 68 €, Doppel ab 90 €.",
 };
-
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 
 export default function RootLayout({
   children,
@@ -31,13 +35,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" className={`${cormorant.variable} ${montserrat.variable} scroll-smooth`}>
-      <body className="antialiased bg-soft-white flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow pt-20">
-          {children}
-        </main>
-        <Footer />
+    <html
+      lang="de"
+      className={`${playfair.variable} ${montserrat.variable} dark scroll-smooth`}
+    >
+      <body className="antialiased flex flex-col min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+        <SmoothScrollProvider>
+          <GrainOverlay />
+          <Header />
+          <main className="flex-grow pt-20">{children}</main>
+          <Footer />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

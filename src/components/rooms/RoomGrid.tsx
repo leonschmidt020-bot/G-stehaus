@@ -1,97 +1,136 @@
+"use client";
+
 import Image from "next/image";
-import { Users, Wifi, Maximize } from "lucide-react";
-import FadeIn from "@/components/ui/FadeIn";
+import { useRef, useEffect } from "react";
+import { gsap } from "@/lib/gsap";
+import OrganicButton from "@/components/ui/OrganicButton";
 
 const rooms = [
   {
     title: "Einzelzimmer",
-    price: "ab 65€",
+    price: "ab 68 €",
+    priceNote: "pro Nacht",
     guests: "1 Person",
-    size: "18m²",
+    size: "ca. 20 m²",
     image: "/images/room.jpg",
-    description: "Perfekt für Geschäftsreisende. Kompakt, modern und mit allem ausgestattet, was Sie brauchen.",
+    description:
+      "Ruhig und funktional. Bequemes Bett, Klimaanlage, Flachbild-TV, eigenes Bad mit ebenerdiger Dusche und kostenloses WLAN.",
+    extras: ["Klimaanlage", "Flachbild-TV", "Ebenerdige Dusche"],
   },
   {
     title: "Doppelzimmer",
-    price: "ab 95€",
+    price: "ab 90 €",
+    priceNote: "pro Nacht",
     guests: "2 Personen",
-    size: "24m²",
+    size: "ca. 20 m²",
     image: "/images/room.jpg",
-    description: "Ideal für Paare. Großzügiges Bett und gemütliche Atmosphäre für entspannte Nächte.",
+    description:
+      "Gemütlich zu zweit. Alle Zimmer mit Klimaanlage, Flachbild-TV, eigenem Bad und WLAN. Einige Zimmer mit Balkon.",
+    extras: ["Klimaanlage", "Teilw. Balkon", "Ebenerdige Dusche"],
+    popular: true,
   },
   {
     title: "Familienzimmer",
-    price: "ab 140€",
-    guests: "2-4 Personen",
-    size: "35m²",
+    price: "auf Anfrage",
+    priceNote: "",
+    guests: "Familien",
+    size: "ca. 20 m²",
     image: "/images/room.jpg",
-    description: "Raum für alle. Separate Bereiche und viel Platz für die ganze Familie.",
+    description:
+      "Für Familien bieten wir individuelle Lösungen an. Sprechen Sie uns einfach an — wir finden die passende Zimmerkombination.",
+    extras: ["Klimaanlage", "Auf Anfrage", "Ebenerdige Dusche"],
   },
 ];
 
 export default function RoomGrid() {
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced || !gridRef.current) return;
+
+    const cards = gridRef.current.querySelectorAll("[data-room-card]");
+    if (cards.length === 0) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        cards,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+    }, gridRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="py-24 bg-soft-white" id="zimmer">
-      <div className="container mx-auto px-6">
-        <FadeIn direction="up">
-          <div className="text-center mb-16">
-            <span className="text-secondary font-sans font-semibold tracking-wider uppercase text-sm">Unterkünfte</span>
-            <h2 className="text-4xl md:text-5xl font-serif text-primary mt-3">Wählen Sie Ihren Rückzugsort</h2>
-          </div>
-        </FadeIn>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {rooms.map((room, index) => (
-            <FadeIn key={index} direction="up" delay={index * 0.2} className="h-full">
-              <div
-                className="group bg-white rounded-soft overflow-hidden shadow-soft-ui hover:shadow-floating transition-all duration-500 transform hover:-translate-y-2 h-full flex flex-col"
-              >
-                {/* Image Area with Soft Mask */}
-                <div className="relative h-64 overflow-hidden flex-shrink-0">
-                  <Image
-                    src={room.image}
-                    alt={room.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-
-                {/* Content */}
-                <div className="p-8 flex flex-col flex-grow">
-                  <div className="flex justify-between items-baseline mb-4">
-                    <h3 className="text-2xl font-serif text-primary">{room.title}</h3>
-                    <span className="text-accent font-bold text-lg">{room.price}</span>
-                  </div>
-
-                  <p className="text-neutral-500 mb-6 text-sm leading-relaxed min-h-[60px]">
-                    {room.description}
-                  </p>
-
-                  <div className="mt-auto">
-                    {/* Icons / Specs */}
-                    <div className="flex gap-4 mb-8 text-neutral-400">
-                      <div className="flex items-center gap-2 text-xs font-medium bg-soft-white px-3 py-1 rounded-full">
-                        <Users size={14} /> {room.guests}
-                      </div>
-                      <div className="flex items-center gap-2 text-xs font-medium bg-soft-white px-3 py-1 rounded-full">
-                        <Maximize size={14} /> {room.size}
-                      </div>
-                      <div className="flex items-center gap-2 text-xs font-medium bg-soft-white px-3 py-1 rounded-full">
-                        <Wifi size={14} /> inkl.
-                      </div>
-                    </div>
-
-                    <button className="w-full py-4 rounded-[1rem] border border-secondary text-primary font-medium hover:bg-sage hover:text-white transition-colors duration-300">
-                      Details & Buchen
-                    </button>
-                  </div>
-                </div>
+    <div
+      ref={gridRef}
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+    >
+      {rooms.map((room, i) => (
+        <div
+          key={i}
+          data-room-card
+          className={`glass-white rounded-[var(--radius-xl)] overflow-hidden group flex flex-col transition-shadow duration-500 hover:shadow-premium-ui ${
+            room.popular ? "ring-1 ring-sage/20" : ""
+          }`}
+        >
+          <div className="relative h-64 overflow-hidden">
+            <Image
+              src={room.image}
+              alt={room.title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+            />
+            {room.popular && (
+              <div className="absolute top-4 left-4 bg-sage text-white text-xs font-medium px-3 py-1 rounded-full">
+                Beliebteste Wahl
               </div>
-            </FadeIn>
-          ))}
+            )}
+            <div className="absolute top-4 right-4 glass px-4 py-1.5 rounded-full text-[var(--color-primary)] text-sm font-medium">
+              {room.price}
+            </div>
+          </div>
+
+          <div className="p-7 flex flex-col flex-grow">
+            <h3 className="text-xl font-serif text-[var(--color-primary)] mb-1">
+              {room.title}
+            </h3>
+            <p className="text-earth-muted text-xs mb-4">
+              {room.guests} · {room.size} · {room.priceNote}
+            </p>
+
+            <p className="text-[var(--color-text)] text-sm font-light leading-relaxed mb-5 flex-grow">
+              {room.description}
+            </p>
+
+            <div className="flex flex-wrap gap-2 mb-6">
+              {room.extras.map((extra) => (
+                <span key={extra} className="text-[11px] text-earth-muted border border-[var(--color-glass-border)] rounded-full px-3 py-1">
+                  {extra}
+                </span>
+              ))}
+            </div>
+
+            <OrganicButton href="/kontakt" variant="outline" arrow className="w-full justify-center text-center">
+              Anfragen
+            </OrganicButton>
+          </div>
         </div>
-      </div>
-    </section>
+      ))}
+    </div>
   );
 }

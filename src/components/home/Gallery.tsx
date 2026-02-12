@@ -1,38 +1,71 @@
+"use client";
+
+import { useRef, useEffect } from "react";
 import Image from "next/image";
+import { gsap } from "@/lib/gsap";
 
 const images = [
-  "/images/exterior.jpg",
-  "/images/room.jpg",
-  "/images/breakfast.jpg",
-  "/images/room.jpg", // Repeating for now to fill grid
-  "/images/exterior.jpg",
-  "/images/breakfast.jpg"
+  { src: "/images/exterior.jpg", alt: "Gästehaus mit Garten im Sommer", span: "md:col-span-2 md:row-span-2" },
+  { src: "/images/room.jpg", alt: "Doppelzimmer mit Eichenparkett" },
+  { src: "/images/breakfast.jpg", alt: "Frühstück von der Bäckerei Schätzle" },
+  { src: "/images/room.jpg", alt: "Einzelzimmer mit Schreibtisch" },
+  { src: "/images/exterior.jpg", alt: "Blick auf die Weinberge vom Garten", span: "md:col-span-2" },
 ];
 
 export default function Gallery() {
-  return (
-    <section className="py-24 bg-soft-white overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-secondary font-sans font-semibold tracking-wider uppercase text-sm">Galerie</span>
-          <h2 className="text-4xl md:text-5xl font-serif text-primary mt-3">Impressionen</h2>
-          <p className="max-w-xl mx-auto text-neutral-500 mt-4">
-            Einblicke in unser Haus und die wunderschöne Umgebung des Markgräflerlands.
-          </p>
-        </div>
+  const gridRef = useRef<HTMLDivElement>(null);
 
-        {/* Masonry-ish Grid */}
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-          {images.map((src, i) => (
-            <div key={i} className="break-inside-avoid relative rounded-2xl overflow-hidden group shadow-soft-ui hover:shadow-floating transition-all duration-500">
+  useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced || !gridRef.current) return;
+
+    const items = gridRef.current.querySelectorAll("[data-gallery-item]");
+    if (items.length === 0) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        items,
+        { opacity: 0, y: 50, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.7,
+          stagger: 0.1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
+    }, gridRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section className="py-[clamp(4rem,10vh,8rem)] overflow-hidden">
+      <div className="container mx-auto px-6 max-w-6xl">
+
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 md:grid-cols-3 gap-3 auto-rows-[250px]"
+        >
+          {images.map((img, i) => (
+            <div
+              key={i}
+              data-gallery-item
+              className={`relative overflow-hidden rounded-[var(--radius-lg)] group ${img.span || ""}`}
+            >
               <Image
-                src={src}
-                alt="Impression"
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
             </div>
           ))}
         </div>

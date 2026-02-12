@@ -1,39 +1,110 @@
 @import "tailwindcss";
 
+/* ============================================
+   NATURE DISTILLED — Design Tokens
+   ============================================ */
+
 @theme {
   --font-sans: var(--font-montserrat);
-  --font-serif: var(--font-cormorant);
+  --font-serif: var(--font-playfair);
 
-  /* White & Beige Theme */
-  --color-background: #FAFAF9;
-  /* Warm White/Stone-50 */
-  --color-beige: #E7E5E4;
-  /* Stone-200 */
-  --color-beige-light: #F5F5F4;
-  /* Stone-100 */
-  --color-primary: #57534E;
-  /* Stone-600 (Text/Headings) */
-  --color-secondary: #D6D3D1;
-  /* Stone-300 */
-  --color-accent: #B45309;
-  /* Amber-700 (Subtle pop) or Gold */
+  /* ---- Sage Green ---- */
+  --color-sage: #8B9E8B;
+  --color-sage-light: #A7B8A7;
+  --color-sage-dark: #6B7E6B;
+  --color-sage-muted: #D4DDD4;
 
-  --color-text: #44403C;
-  /* Stone-700 */
-  --color-white: #FFFFFF;
+  /* ---- Terracotta ---- */
+  --color-terracotta: #C4896B;
+  --color-terracotta-light: #D4A68B;
+  --color-terracotta-dark: #A66E52;
 
-  /* Soft Shadows */
-  --shadow-soft: 8px 8px 16px #E6DEDD, -8px -8px 16px #FFFFFF;
-  --shadow-inner-soft: inset 4px 4px 8px #E6DEDD, inset -4px -4px 8px #FFFFFF;
-  --shadow-floating: 0 10px 30px -10px rgba(168, 213, 186, 0.4);
+  /* ---- Sand ---- */
+  --color-sand: #D4C5A9;
+  --color-sand-light: #E8DCC8;
+  --color-sand-dark: #B5A78C;
 
-  --radius-xl: 1.5rem;
-  --radius-2xl: 2rem;
+  /* ---- Cream ---- */
+  --color-cream: #F5F0E8;
+  --color-cream-warm: #FAF5ED;
+
+  /* ---- Earth (replaces black) ---- */
+  --color-earth: #4A4239;
+  --color-earth-light: #6B6358;
+  --color-earth-muted: #8B8478;
+
+  /* ---- Semantic aliases ---- */
+  --color-primary: #4A4239;
+  --color-text: #6B6358;
+  --color-accent: #8B9E8B;
+  --color-accent-light: #A7B8A7;
+  --color-background: #F5F0E8;
+
+  /* ---- Glassmorphism ---- */
+  --color-glass-light: rgba(245, 240, 232, 0.65);
+  --color-glass-border: rgba(245, 240, 232, 0.30);
+  --color-glass-white: rgba(255, 255, 255, 0.60);
+  --color-glass-white-border: rgba(255, 255, 255, 0.25);
+
+  /* ---- Shadows ---- */
+  --shadow-soft: 0 4px 20px -4px rgba(74, 66, 57, 0.06);
+  --shadow-medium: 0 8px 30px -6px rgba(74, 66, 57, 0.10);
+  --shadow-premium: 0 20px 50px -12px rgba(74, 66, 57, 0.15);
+  --shadow-glass: 0 8px 32px rgba(74, 66, 57, 0.08);
+  --shadow-inner-soft: inset 0 2px 8px rgba(74, 66, 57, 0.04);
+
+  /* ---- Radii ---- */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-organic: 2.5rem;
+  --radius-premium: 1rem;
 }
 
+/* ============================================
+   BASE STYLES (Light Mode)
+   ============================================ */
+
 :root {
-  --background: #FFF5F5;
-  --foreground: #4A4A4A;
+  --background: #F5F0E8;
+  --foreground: #4A4239;
+  --surface: #FAF5ED;
+  --surface-2: #FFFFFF;
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+.dark {
+  --background: #1A1816;
+  --foreground: #E8E0D4;
+  --surface: #242120;
+  --surface-2: #2E2B29;
+  --color-primary: #E8E0D4;
+  --color-text: #A89E90;
+  --color-accent: #A7B8A7;
+  --color-accent-light: #C5D9CF;
+  --color-background: #1A1816;
+  --color-cream: #1A1816;
+  --color-cream-warm: #242120;
+  --color-earth: #E8E0D4;
+  --color-earth-light: #A89E90;
+  --color-earth-muted: #7A7268;
+  --color-sage: #A7B8A7;
+  --color-sage-light: #C5D9CF;
+  --color-sage-dark: #8B9E8B;
+  --color-sage-muted: #3A4A3E;
+  --color-terracotta: #D4A68B;
+  --color-terracotta-light: #E0BFA8;
+  --color-sand: #8B8478;
+  --color-sand-light: #4A4239;
+  --color-sand-dark: #6B6358;
+  --color-glass-light: rgba(26, 24, 22, 0.70);
+  --color-glass-border: rgba(255, 255, 255, 0.06);
+  --color-glass-white: rgba(42, 38, 33, 0.70);
+  --color-glass-white-border: rgba(255, 255, 255, 0.08);
 }
 
 body {
@@ -42,36 +113,133 @@ body {
   font-family: var(--font-sans), sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Utilities */
-.text-gold {
-  color: var(--color-accent);
-}
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
 
-.bg-sage {
-  background-color: var(--color-secondary);
-}
-
-.bg-soft-white {
-  background-color: var(--color-background);
-}
-
-.shadow-soft-ui {
-  box-shadow: var(--shadow-soft);
-}
-
-.rounded-soft {
-  border-radius: var(--radius-xl);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-serif);
-  font-weight: 600;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 500;
   color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+
+/* ============================================
+   GLASSMORPHISM UTILITIES
+   ============================================ */
+
+.glass {
+  background: var(--color-glass-light);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid var(--color-glass-border);
+}
+
+.glass-white {
+  background: var(--color-glass-white);
+  backdrop-filter: blur(20px) saturate(1.3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+  border: 1px solid var(--color-glass-white-border);
+}
+
+/* ============================================
+   GRAIN TEXTURE
+   ============================================ */
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+}
+
+.dark .grain-overlay {
+  opacity: 0.06;
+  mix-blend-mode: soft-light;
+}
+
+/* ============================================
+   DARK MODE IMAGE TREATMENT
+   ============================================ */
+
+.dark img:not([data-no-dim]) {
+  filter: brightness(0.88) contrast(1.05);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.text-sage { color: var(--color-sage); }
+.text-terracotta { color: var(--color-terracotta); }
+.text-earth { color: var(--color-earth); }
+.text-earth-light { color: var(--color-earth-light); }
+.text-earth-muted { color: var(--color-earth-muted); }
+.bg-cream { background-color: var(--color-cream); }
+.bg-cream-warm { background-color: var(--color-cream-warm); }
+.bg-surface { background-color: var(--surface); }
+.bg-surface-2 { background-color: var(--surface-2); }
+
+.shadow-soft-ui { box-shadow: var(--shadow-soft); }
+.shadow-premium-ui { box-shadow: var(--shadow-premium); }
+.shadow-glass-ui { box-shadow: var(--shadow-glass); }
+
+.rounded-organic { border-radius: var(--radius-organic); }
+.rounded-premium { border-radius: var(--radius-premium); }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes scrollLine {
+  0% { transform: translateY(-100%); }
+  50% { transform: translateY(100%); }
+  100% { transform: translateY(-100%); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.21, 1.02, 0.73, 1) forwards;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   FOCUS STYLES (Accessibility)
+   ============================================ */
+
+:focus-visible {
+  outline: 2px solid var(--color-sage);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============================================
+   SELECTION
+   ============================================ */
+
+::selection {
+  background-color: var(--color-sage-muted);
+  color: var(--color-earth);
+}
+
+.dark ::selection {
+  background-color: var(--color-sage-dark);
+  color: var(--color-cream);
 }
