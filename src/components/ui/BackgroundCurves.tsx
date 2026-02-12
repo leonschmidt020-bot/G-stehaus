@@ -8,7 +8,7 @@ const curves = [
     left: "-5%",
     width: "70%",
     rotate: -8,
-    opacity: 0.12,
+    opacity: 0.05,
   },
   // Schlanke Welle rechts oben
   {
@@ -17,7 +17,7 @@ const curves = [
     right: "-3%",
     width: "45%",
     rotate: 15,
-    opacity: 0.08,
+    opacity: 0.035,
   },
   // Langgezogener Bogen Mitte links
   {
@@ -26,7 +26,7 @@ const curves = [
     left: "-8%",
     width: "60%",
     rotate: -3,
-    opacity: 0.1,
+    opacity: 0.04,
   },
   // Kleine Schleife rechts Mitte
   {
@@ -35,7 +35,7 @@ const curves = [
     right: "2%",
     width: "30%",
     rotate: 22,
-    opacity: 0.07,
+    opacity: 0.03,
   },
   // Breite sanfte Welle unten
   {
@@ -44,7 +44,7 @@ const curves = [
     left: "-3%",
     width: "75%",
     rotate: 5,
-    opacity: 0.09,
+    opacity: 0.04,
   },
   // Kleine Kurve unten rechts
   {
@@ -53,7 +53,7 @@ const curves = [
     right: "-5%",
     width: "35%",
     rotate: -12,
-    opacity: 0.06,
+    opacity: 0.025,
   },
   // Vertikale Welle links
   {
@@ -62,7 +62,7 @@ const curves = [
     left: "8%",
     width: "15%",
     rotate: 0,
-    opacity: 0.07,
+    opacity: 0.03,
   },
 ];
 
@@ -92,7 +92,7 @@ export default function BackgroundCurves() {
           <path
             d={curve.d}
             stroke="var(--color-sage)"
-            strokeWidth="1.5"
+            strokeWidth="1"
             strokeLinecap="round"
             fill="none"
           />
