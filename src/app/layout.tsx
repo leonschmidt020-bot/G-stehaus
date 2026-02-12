@@ -7,6 +7,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import GrainOverlay from "@/components/ui/GrainOverlay";
+import BackgroundCurves from "@/components/ui/BackgroundCurves";
 
 const notoSerif = Noto_Serif({
   subsets: ["latin"],
@@ -41,6 +42,7 @@ export default function RootLayout({
     >
       <body className="antialiased flex flex-col min-h-screen bg-[var(--background)] text-[var(--foreground)]">
         <SmoothScrollProvider>
+          <BackgroundCurves />
           <GrainOverlay />
           <Header />
           <main className="flex-grow pt-20">{children}</main>
