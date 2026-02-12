@@ -70,12 +70,13 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[100vh] min-h-[600px] w-full overflow-hidden flex items-end -mt-20"
+      className="relative h-[100vh] min-h-[600px] w-full flex items-end -mt-20"
     >
-      <div
-        ref={imageRef}
-        className="absolute inset-0 w-full h-[120%] -mt-[10%]"
-      >
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          ref={imageRef}
+          className="w-full h-[120%] -mt-[10%]"
+        >
         <Image
           src="/images/exterior.jpg"
           alt="Das Gästehaus Eimeldingen Außenansicht"
@@ -84,6 +85,7 @@ export default function Hero() {
           sizes="100vw"
           className="object-cover"
         />
+        </div>
       </div>
 
       <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/40 to-transparent" />
