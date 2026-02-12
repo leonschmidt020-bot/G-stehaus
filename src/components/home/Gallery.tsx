@@ -8,8 +8,6 @@ const images = [
   { src: "/images/exterior.jpg", alt: "Das Gästehaus von außen", span: "md:col-span-2 md:row-span-2" },
   { src: "/images/zimmer1.jpg", alt: "Zimmer mit bequemem Doppelbett" },
   { src: "/images/bathroom.jpg", alt: "Helles Badezimmer mit Dachfenster" },
-  { src: "/images/breakfast.jpg", alt: "Gemeinschaftsbereich im Gästehaus" },
-  { src: "/images/exterior.jpg", alt: "Eingangsbereich des Gästehauses", span: "md:col-span-2" },
 ];
 
 export default function Gallery() {
