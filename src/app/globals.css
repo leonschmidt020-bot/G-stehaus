@@ -78,17 +78,17 @@
    ============================================ */
 
 .dark {
-  --background: #4A4239;
+  --background: #3B2718;
   --foreground: #E8E0D4;
-  --surface: #564D43;
-  --surface-2: #5E554B;
+  --surface: #4A3525;
+  --surface-2: #584332;
   --color-primary: #E8E0D4;
   --color-text: #A89E90;
   --color-accent: #A7B8A7;
   --color-accent-light: #C5D9CF;
-  --color-background: #1A1816;
-  --color-cream: #1A1816;
-  --color-cream-warm: #242120;
+  --color-background: #3B2718;
+  --color-cream: #3B2718;
+  --color-cream-warm: #4A3525;
   --color-earth: #E8E0D4;
   --color-earth-light: #A89E90;
   --color-earth-muted: #7A7268;
