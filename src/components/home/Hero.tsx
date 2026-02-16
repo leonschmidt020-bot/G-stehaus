@@ -5,10 +5,12 @@ import Link from "next/link";
 import { useRef, useEffect } from "react";
 import { gsap } from "@/lib/gsap";
 
+
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const captionRef = useRef<HTMLDivElement>(null);
+
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
@@ -49,6 +51,7 @@ export default function Hero() {
           }
         );
       }
+
     }, sectionRef);
 
     return () => ctx.revert();
@@ -73,7 +76,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Gradient overlay — strong bottom fade for text legibility */}
+      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
 
       {/* Centered caption at bottom */}

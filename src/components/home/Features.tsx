@@ -6,7 +6,7 @@ import { gsap } from "@/lib/gsap";
 const features = [
   {
     title: "Kostenloser Parkplatz",
-    text: "Direkt vor dem Haus. Kein Parkhaus, kein Suchen. Sie fahren vor, laden aus, fertig.",
+    text: "Direkt vor dem Haus.",
   },
   {
     title: "Kaffee & Tee, rund um die Uhr",
@@ -22,10 +22,10 @@ const features = [
   },
   {
     title: "Check-in flexibel",
-    text: "Regulär ab 15 Uhr. Wenn Sie früher oder später kommen, sagen Sie einfach Bescheid, wir finden eine Lösung.",
+    text: "Regulär ab 16 Uhr. Wenn Sie früher oder später kommen, sagen Sie einfach Bescheid, wir finden eine Lösung.",
   },
   {
-    title: "Bezahlung unkompliziert",
+    title: "Bezahlung",
     text: "Bar, EC-Karte oder Kreditkarte, wie es Ihnen am liebsten ist. Bitte beachten Sie: Haustiere können wir leider nicht aufnehmen.",
   },
 ];

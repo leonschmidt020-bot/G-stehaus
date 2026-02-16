@@ -84,9 +84,8 @@ export default function UeberUns() {
             <div className="space-y-5">
               <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-[17px]">
                 Das Gästehaus in Eimeldingen verfügt über sechs gemütlich
-                eingerichtete Zimmer für Geschäftsreisende, Messebesucher und
-                Urlaubsgäste. Unkompliziert, sauber und persönlich – so wie es
-                sein soll.
+                eingerichtete Zimmer für Geschäftsreisende und
+                Urlaubsgäste. Sauber und persönlich.
               </p>
               <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-[17px]">
                 Alle Zimmer haben kostenloses WLAN, Klimaanlage, Flachbild-TV

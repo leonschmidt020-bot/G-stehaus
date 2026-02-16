@@ -11,7 +11,7 @@ const reviews = [
     date: "Local Guide",
   },
   {
-    text: "Ich war im Gästehaus Eimeldingen und es war sehr schön. Freundliche Gastgeberin, schönes, sauberes Zimmer. Zum Abschied gab es noch eine Flasche regionales Bier. Liebe Grüße aus Sachsen!",
+    text: "Ich war im Gästehaus Eimeldingen und es war sehr schön. Freundliche Gastgeberin, schönes, sauberes Zimmer. Liebe Grüße aus Sachsen!",
     name: "Tim Scholz",
     source: "Google",
     date: "Local Guide",
