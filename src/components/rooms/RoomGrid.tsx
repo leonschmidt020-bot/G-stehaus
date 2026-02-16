@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useEffect } from "react";
 import { gsap } from "@/lib/gsap";
 import OrganicButton from "@/components/ui/OrganicButton";
@@ -8,6 +9,7 @@ import OrganicButton from "@/components/ui/OrganicButton";
 const rooms = [
   {
     title: "Einzelzimmer",
+    slug: "einzelzimmer",
     price: "ab 68 €",
     priceNote: "pro Nacht",
     guests: "1 Person",
@@ -19,11 +21,12 @@ const rooms = [
   },
   {
     title: "Doppelzimmer",
+    slug: "doppelzimmer",
     price: "ab 90 €",
     priceNote: "pro Nacht",
     guests: "2 Personen",
     size: "ca. 20 m²",
-    image: "/images/zimmer1.jpg",
+    image: "/images/room.jpg",
     description:
       "Gemütlich zu zweit. Alle Zimmer mit Klimaanlage, Flachbild-TV, eigenem Bad und WLAN. Einige Zimmer mit Balkon.",
     extras: ["Klimaanlage", "Teilw. Balkon", "Ebenerdige Dusche"],
@@ -31,6 +34,7 @@ const rooms = [
   },
   {
     title: "Familienzimmer",
+    slug: "familienzimmer",
     price: "auf Anfrage",
     priceNote: "auf Anfrage",
     guests: "Familien",
@@ -46,7 +50,9 @@ export default function RoomGrid() {
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
     if (prefersReduced || !gridRef.current) return;
 
     const cards = gridRef.current.querySelectorAll("[data-room-card]");
@@ -83,11 +89,14 @@ export default function RoomGrid() {
         <div
           key={i}
           data-room-card
-          className={`glass-white rounded-[var(--radius-xl)] overflow-hidden group flex flex-col transition-shadow duration-500 hover:shadow-premium-ui ${
+          className={`rounded-[var(--radius-xl)] overflow-hidden group flex flex-col transition-shadow duration-500 hover:shadow-premium-ui border border-[var(--color-primary)]/8 bg-[var(--surface)] ${
             room.popular ? "ring-1 ring-sage/20" : ""
           }`}
         >
-          <div className="relative h-64 overflow-hidden">
+          <Link
+            href={`/zimmer/${room.slug}`}
+            className="relative h-64 overflow-hidden block"
+          >
             <Image
               src={room.image}
               alt={room.title}
@@ -100,16 +109,18 @@ export default function RoomGrid() {
                 Beliebteste Wahl
               </div>
             )}
-            <div className="absolute top-4 right-4 glass px-4 py-1.5 rounded-full text-[var(--color-primary)] text-sm font-medium">
+            <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-sm px-4 py-1.5 rounded-full text-white text-sm font-medium">
               {room.price}
             </div>
-          </div>
+          </Link>
 
           <div className="p-7 flex flex-col flex-grow">
-            <h3 className="text-xl font-serif text-[var(--color-primary)] mb-1">
-              {room.title}
-            </h3>
-            <p className="text-earth-muted text-xs mb-4">
+            <Link href={`/zimmer/${room.slug}`}>
+              <h3 className="text-xl font-serif text-[var(--color-primary)] mb-1 hover:text-sage transition-colors">
+                {room.title}
+              </h3>
+            </Link>
+            <p className="text-[var(--color-text)]/60 text-xs mb-4">
               {room.guests} · {room.size} · {room.priceNote}
             </p>
 
@@ -119,15 +130,32 @@ export default function RoomGrid() {
 
             <div className="flex flex-wrap gap-2 mb-6">
               {room.extras.map((extra) => (
-                <span key={extra} className="text-[11px] text-earth-muted border border-[var(--color-glass-border)] rounded-full px-3 py-1">
+                <span
+                  key={extra}
+                  className="text-[11px] text-[var(--color-text)] border border-[var(--color-primary)]/10 rounded-full px-3 py-1"
+                >
                   {extra}
                 </span>
               ))}
             </div>
 
-            <OrganicButton href="/kontakt" variant="outline" arrow className="w-full justify-center text-center">
-              Anfragen
-            </OrganicButton>
+            <div className="flex gap-3">
+              <OrganicButton
+                href={`/zimmer/${room.slug}`}
+                variant="outline"
+                arrow
+                className="flex-1 justify-center text-center"
+              >
+                Details
+              </OrganicButton>
+              <OrganicButton
+                href="/kontakt"
+                variant="primary"
+                className="flex-1 justify-center text-center"
+              >
+                Anfragen
+              </OrganicButton>
+            </div>
           </div>
         </div>
       ))}

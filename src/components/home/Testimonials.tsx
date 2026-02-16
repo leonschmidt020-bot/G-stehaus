@@ -28,7 +28,9 @@ export default function Testimonials() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
     if (prefersReduced || !sectionRef.current) return;
 
     const ctx = gsap.context(() => {
@@ -55,40 +57,46 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-[clamp(4rem,10vh,8rem)]">
-      <div className="container mx-auto px-6 max-w-5xl">
-
-        <div className="flex items-baseline justify-between mb-10 flex-wrap gap-4">
-          <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-serif text-[var(--color-primary)] tracking-tight">
-            Was Gäste sagen
-          </h2>
-          <div className="flex items-center gap-2 text-sm text-earth-muted">
-            <span className="text-sage">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span>4.8 / 5 auf Google</span>
+    <section ref={sectionRef} className="py-[clamp(6rem,14vh,10rem)]">
+      <div className="container mx-auto px-6 max-w-6xl">
+        {/* Editorial two-column: heading left, reviews right */}
+        <div className="grid md:grid-cols-[2fr_3fr] gap-8 md:gap-20 items-start">
+          <div data-review>
+            <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-serif text-[var(--color-primary)] tracking-tight leading-tight mb-3">
+              Was Gäste sagen
+            </h2>
+            <div className="flex items-center gap-2 text-sm text-earth-muted">
+              <span className="text-sage">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span>4.8 / 5 auf Google</span>
+            </div>
           </div>
-        </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {reviews.map((review, i) => (
-            <blockquote
-              key={i}
-              data-review
-              className="glass-white rounded-[var(--radius-xl)] p-7 flex flex-col"
-            >
-              <p className="text-[var(--color-primary)] font-light leading-relaxed text-[15px] mb-6 flex-grow">
-                &ldquo;{review.text}&rdquo;
-              </p>
-              <footer className="flex items-center justify-between text-sm">
-                <div>
-                  <cite className="not-italic font-medium text-[var(--color-primary)]">
-                    {review.name}
-                  </cite>
-                  <p className="text-earth-muted text-xs mt-0.5">{review.date}</p>
-                </div>
-                <span className="text-earth-muted text-xs">{review.source}</span>
-              </footer>
-            </blockquote>
-          ))}
+          <div className="space-y-10">
+            {reviews.map((review, i) => (
+              <blockquote
+                key={i}
+                data-review
+                className="border-t border-[var(--color-primary)]/10 pt-8 first:border-t-0 first:pt-0"
+              >
+                <p className="text-[var(--color-primary)] font-serif italic text-base md:text-lg leading-relaxed mb-5">
+                  &ldquo;{review.text}&rdquo;
+                </p>
+                <footer className="flex items-center justify-between text-sm">
+                  <div>
+                    <cite className="not-italic font-medium text-[var(--color-primary)] text-[13px] tracking-wide">
+                      {review.name}
+                    </cite>
+                    <p className="text-earth-muted text-xs mt-0.5">
+                      {review.date}
+                    </p>
+                  </div>
+                  <span className="text-earth-muted text-xs">
+                    {review.source}
+                  </span>
+                </footer>
+              </blockquote>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -52,10 +52,10 @@ export default function ContactPage() {
                   <li>
                     <h3 className="font-medium text-[var(--color-primary)] text-sm mb-1">Check-in / Check-out</h3>
                     <p className="text-[var(--color-text)] text-sm font-light">
-                      Check-in ab 15 Uhr · Check-out bis 11 Uhr
+                      Check-in täglich von 16:00 bis 20:00 Uhr · Check-out bis 10:00 Uhr
                     </p>
                     <p className="text-earth-muted text-xs mt-1">
-                      Andere Zeiten nach Absprache möglich.
+                      Persönliche Übergabe. Späterer Check-out nach Vereinbarung.
                     </p>
                   </li>
 
