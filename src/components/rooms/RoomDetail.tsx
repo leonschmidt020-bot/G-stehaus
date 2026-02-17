@@ -248,7 +248,7 @@ export default function RoomDetail({
               innerhalb weniger Stunden.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <OrganicButton href="/kontakt" variant="primary" arrow>
+              <OrganicButton href={`/kontakt?zimmer=${encodeURIComponent(title)}`} variant="primary" arrow>
                 Verfügbarkeit anfragen
               </OrganicButton>
               <OrganicButton href="/zimmer" variant="outline" arrow>

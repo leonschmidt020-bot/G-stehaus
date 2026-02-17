@@ -53,7 +53,7 @@ export default function ServiceInfo() {
               </div>
               <h3 className="text-2xl font-serif text-primary mb-3">Bäckerei nebenan</h3>
               <p className="text-neutral-600 leading-relaxed">
-                Für ein frisches Frühstück ist bestens gesorgt. Die lokale Bäckerei ist nur <span className="font-semibold text-primary">2 Gehminuten</span> entfernt und bietet täglich frische Brötchen und Gebäck.
+                Für ein frisches Frühstück ist bestens gesorgt. Die lokale Bäckerei ist nur <span className="font-semibold text-primary">5 Gehminuten</span> entfernt und bietet täglich frische Brötchen und Gebäck.
               </p>
             </div>
           </FadeIn>

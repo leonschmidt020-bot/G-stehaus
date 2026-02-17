@@ -208,6 +208,16 @@ h1, h2, h3, h4, h5, h6 {
    ANIMATIONS
    ============================================ */
 
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
 @keyframes scrollLine {
   0% { transform: translateY(-100%); }
   50% { transform: translateY(100%); }

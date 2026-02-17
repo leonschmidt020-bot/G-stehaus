@@ -3,7 +3,7 @@ import RoomDetail from "@/components/rooms/RoomDetail";
 const images = [
   { src: "/images/einzelzimmer.jpg", alt: "Einzelzimmer mit bequemem Bett" },
   { src: "/images/einzelbett.jpg", alt: "Einzelbett mit Nachttischen" },
-  { src: "/images/bathroom.jpg", alt: "Badezimmer mit ebenerdiger Dusche" },
+  { src: "/images/zimmer-ug.jpg", alt: "Zimmer mit TV, Sitzecke und Schreibtisch" },
 ];
 
 const amenities = [

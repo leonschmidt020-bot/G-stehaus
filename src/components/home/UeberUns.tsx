@@ -68,32 +68,15 @@ export default function UeberUns() {
     return () => ctx.revert();
   }, []);
 
-  /* Auto-scroll gallery continuously to the left (images move right-to-left) */
+  /* Auto-scroll: pause on hover via CSS class */
   useEffect(() => {
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced || !trackRef.current) return;
-
     const track = trackRef.current;
-    const halfWidth = track.scrollWidth / 2;
-
-    const tween = gsap.to(track, {
-      x: -halfWidth,
-      duration: 30,
-      ease: "none",
-      repeat: -1,
-      modifiers: {
-        x: gsap.utils.unitize((x) => parseFloat(x) % halfWidth),
-      },
-    });
-
-    /* Pause on hover */
-    const pause = () => tween.pause();
-    const play = () => tween.play();
+    if (!track) return;
+    const pause = () => track.style.animationPlayState = "paused";
+    const play = () => track.style.animationPlayState = "running";
     track.addEventListener("mouseenter", pause);
     track.addEventListener("mouseleave", play);
-
     return () => {
-      tween.kill();
       track.removeEventListener("mouseenter", pause);
       track.removeEventListener("mouseleave", play);
     };
@@ -131,7 +114,7 @@ export default function UeberUns() {
 
       {/* ── Auto-scrolling gallery (Brecon section01 carousel) ── */}
       <section ref={galleryRef} className="pb-[clamp(4rem,10vh,8rem)] overflow-hidden">
-        <div ref={trackRef} className="flex gap-3 md:gap-4 w-max">
+        <div ref={trackRef} className="flex gap-3 md:gap-4 w-max animate-marquee">
           {[...galleryImages, ...galleryImages].map((img, i) => (
             <div
               key={i}
@@ -181,7 +164,7 @@ export default function UeberUns() {
                 Eimeldingen liegt im Dreiländereck
                 Deutschland–Frankreich–Schweiz. Die Schweizer Grenze, Basel und
                 Lörrach erreichen Sie in wenigen Minuten. Die Autobahn A5
-                befindet sich in unmittelbarer Nähe, kostenfreie Parkplätze
+                befindet sich in unmittelbarer Nähe, kostenlose Parkplätze
                 stehen direkt am Haus zur Verfügung.
               </p>
               <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-[17px]">
@@ -218,7 +201,7 @@ export default function UeberUns() {
                   Balkon.
                 </p>
                 <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-[17px]">
-                  Im Haus stehen kostenfreier Kaffee und Tee sowie ein
+                  Im Haus stehen kostenloser Kaffee und Tee sowie ein
                   Gemeinschaftskühlschrank bereit. Im hellen Aufenthaltsraum
                   können Sie entspannt mit einer Tasse Kaffee oder Tee in den
                   Tag starten.

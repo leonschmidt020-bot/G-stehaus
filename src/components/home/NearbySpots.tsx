@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 import { gsap } from "@/lib/gsap";
 
 const spots = [
-  { name: "Bäckerei", walk: "2 Min.", drive: null },
+  { name: "Bäckerei", walk: "5 Min.", drive: null },
   { name: "Aldi", walk: "5 Min.", drive: "2 Min." },
   { name: "Penny", walk: "5 Min.", drive: "2 Min." },
   { name: "DM", walk: "5 Min.", drive: "2 Min." },

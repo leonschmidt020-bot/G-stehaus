@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ContactForm from "@/components/ContactForm";
 
 export default function ContactPage() {
@@ -83,7 +84,9 @@ export default function ContactPage() {
             </div>
 
             {/* Form */}
-            <ContactForm />
+            <Suspense fallback={null}>
+              <ContactForm />
+            </Suspense>
           </div>
         </div>
       </section>
