@@ -37,13 +37,13 @@ export default function Testimonials() {
       const cards = sectionRef.current!.querySelectorAll("[data-review]");
       gsap.fromTo(
         cards,
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 25 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.7,
-          stagger: 0.12,
-          ease: "power3.out",
+          duration: 1,
+          stagger: 0.15,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 80%",

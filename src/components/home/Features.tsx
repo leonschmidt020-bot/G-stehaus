@@ -43,13 +43,13 @@ export default function Features() {
       const items = sectionRef.current!.querySelectorAll("[data-feature]");
       gsap.fromTo(
         items,
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 25 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.7,
-          stagger: 0.1,
-          ease: "power3.out",
+          duration: 1,
+          stagger: 0.12,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 80%",

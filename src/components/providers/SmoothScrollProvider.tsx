@@ -14,9 +14,10 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
     if (prefersReduced) return;
 
     const lenis = new Lenis({
-      lerp: 0.1,
-      duration: 1.2,
+      lerp: 0.06,
+      duration: 1.8,
       smoothWheel: true,
+      touchMultiplier: 1.5,
     });
 
     lenisRef.current = lenis;

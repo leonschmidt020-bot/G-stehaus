@@ -30,7 +30,7 @@ export default function Hero() {
               trigger: sectionRef.current,
               start: "top top",
               end: "bottom top",
-              scrub: true,
+              scrub: 1.5,
             },
           }
         );
@@ -40,13 +40,13 @@ export default function Hero() {
         const els = captionRef.current.querySelectorAll("[data-anim]");
         gsap.fromTo(
           els,
-          { y: 50, opacity: 0 },
+          { y: 40, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            duration: 1.2,
-            stagger: 0.15,
-            ease: "power3.out",
+            duration: 1.4,
+            stagger: 0.2,
+            ease: "power2.out",
             delay: 0.3,
           }
         );

@@ -38,7 +38,7 @@ export default function NearbySpots() {
         { scaleX: 0 },
         {
           scaleX: 1,
-          duration: 0.7,
+          duration: 1,
           stagger: 0.15,
           ease: "power2.inOut",
         }
@@ -47,29 +47,29 @@ export default function NearbySpots() {
       // Names fade up
       tl.fromTo(
         texts,
-        { y: 14, opacity: 0 },
+        { y: 10, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.45,
+          duration: 0.7,
           stagger: 0.12,
-          ease: "power3.out",
+          ease: "power2.out",
         },
-        "-=0.5"
+        "-=0.6"
       );
 
       // Details fade in
       tl.fromTo(
         details,
-        { y: 8, opacity: 0 },
+        { y: 6, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.4,
+          duration: 0.6,
           stagger: 0.12,
-          ease: "power3.out",
+          ease: "power2.out",
         },
-        "-=0.4"
+        "-=0.5"
       );
     }, stripRef);
 

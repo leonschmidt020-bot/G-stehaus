@@ -28,12 +28,12 @@ export default function UeberUns() {
       textBlocks.forEach((block) => {
         gsap.fromTo(
           block,
-          { y: 60, opacity: 0 },
+          { y: 40, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
+            duration: 1.2,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: block,
               start: "top 85%",
@@ -48,13 +48,13 @@ export default function UeberUns() {
       if (items.length) {
         gsap.fromTo(
           items,
-          { opacity: 0, y: 30 },
+          { opacity: 0, y: 20 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.6,
-            stagger: 0.08,
-            ease: "power3.out",
+            duration: 1,
+            stagger: 0.1,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: galleryRef.current,
               start: "top 85%",
@@ -143,7 +143,7 @@ export default function UeberUns() {
                 alt={img.alt}
                 fill
                 sizes="(max-width: 768px) 280px, (max-width: 1024px) 350px, 420px"
-                className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
               />
             </div>
           ))}

@@ -28,7 +28,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-1000 ease-out ${
           isScrolled ? `${styles.glassNavbar} shadow-soft py-3` : "bg-transparent py-5"
         }`}
       >

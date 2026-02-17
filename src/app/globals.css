@@ -114,6 +114,17 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Smooth GPU-accelerated transforms for animated elements */
+[data-reveal], [data-gallery], [data-feature], [data-review], [data-anim], [data-spot] {
+  will-change: transform, opacity;
+}
+
+/* Global smoother image transitions */
+img {
+  transition: filter 0.6s ease;
 }
 
 
