@@ -14,8 +14,8 @@ export default function FloatingCallButton() {
       onMouseLeave={() => setIsHovered(false)}
       aria-label="Anrufen"
     >
-      {/* Pulsing background ring */}
-      <div className="absolute inset-0 rounded-full bg-sage/30 animate-ping" />
+      {/* Subtle background ring */}
+      <div className="absolute inset-0 rounded-full bg-sage/20" />
 
       {/* Main button */}
       <div className="relative flex items-center gap-3 bg-sage hover:bg-sage/90 text-cream rounded-full shadow-2xl transition-all duration-300 overflow-hidden">

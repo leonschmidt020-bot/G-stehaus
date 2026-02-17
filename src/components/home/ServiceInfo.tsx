@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Coffee, MapPin } from "lucide-react";
 import FadeIn from "@/components/ui/FadeIn";
 
@@ -5,6 +6,30 @@ export default function ServiceInfo() {
   return (
     <section className="py-20 bg-white relative z-20 -mt-10 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.03)]">
       <div className="container mx-auto px-6">
+        {/* Aufenthaltsraum Photos */}
+        <FadeIn direction="up" delay={0.1}>
+          <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto mb-10">
+            <div className="relative aspect-[16/9] rounded-[1.5rem] overflow-hidden">
+              <Image
+                src="/images/aufenthaltsraum1.jpg"
+                alt="Gemütlicher Aufenthaltsraum mit Kaffee- und Teestation"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div className="relative aspect-[16/9] rounded-[1.5rem] overflow-hidden">
+              <Image
+                src="/images/aufenthaltsraum2.jpg"
+                alt="Heller Gemeinschaftsbereich mit großen Fenstern"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </FadeIn>
+
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 
           {/* Coffee/Tea Station Card */}
