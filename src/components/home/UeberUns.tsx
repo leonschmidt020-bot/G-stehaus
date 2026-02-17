@@ -5,10 +5,10 @@ import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 
 const galleryImages = [
-  { src: "/images/exterior.jpg", alt: "Das Gästehaus von außen" },
-  { src: "/images/zimmer1.jpg", alt: "Zimmer mit bequemem Doppelbett" },
-  { src: "/images/bathroom.jpg", alt: "Helles Badezimmer mit Dachfenster" },
-  { src: "/images/room.jpg", alt: "Gemütliches Zimmer" },
+  { src: "/images/exterior2.jpg", alt: "Das Gästehaus von außen" },
+  { src: "/images/doppelbett.jpg", alt: "Gemütliches Doppelbett" },
+  { src: "/images/balkon.jpg", alt: "Balkon bei Sonnenuntergang" },
+  { src: "/images/aufenthalt.jpg", alt: "Heller Aufenthaltsraum" },
 ];
 
 export default function UeberUns() {
@@ -121,8 +121,8 @@ export default function UeberUns() {
       {/* ── Full-bleed image (Brecon section02) ── */}
       <section className="relative w-full h-[70vh] min-h-[400px] max-h-[800px]">
         <Image
-          src="/images/bathroom.jpg"
-          alt="Helles Badezimmer mit Dachfenster"
+          src="/images/balkon.jpg"
+          alt="Balkon bei Sonnenuntergang"
           fill
           sizes="100vw"
           className="object-cover"
@@ -202,8 +202,8 @@ export default function UeberUns() {
               className="relative aspect-[4/5] overflow-hidden"
             >
               <Image
-                src="/images/zimmer1.jpg"
-                alt="Helles Zimmer mit Holzboden und weißer Bettwäsche"
+                src="/images/doppelzimmer.jpg"
+                alt="Doppelzimmer mit grünen Kissen"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"

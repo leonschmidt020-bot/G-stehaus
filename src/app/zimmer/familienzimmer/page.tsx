@@ -1,9 +1,9 @@
 import RoomDetail from "@/components/rooms/RoomDetail";
 
 const images = [
-  { src: "/images/zimmer1.jpg", alt: "Familienzimmer" },
-  { src: "/images/room.jpg", alt: "Zimmeransicht" },
-  { src: "/images/bathroom.jpg", alt: "Badezimmer mit ebenerdiger Dusche" },
+  { src: "/images/familienzimmer.jpg", alt: "Familienzimmer mit drei Betten" },
+  { src: "/images/familien-betten.jpg", alt: "Doppelbett und Einzelbett" },
+  { src: "/images/zimmer-og.jpg", alt: "Zimmer mit Schreibtisch und Schrank" },
 ];
 
 const amenities = [

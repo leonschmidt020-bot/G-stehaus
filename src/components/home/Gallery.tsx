@@ -6,8 +6,8 @@ import { gsap } from "@/lib/gsap";
 
 const images = [
   { src: "/images/exterior.jpg", alt: "Das Gästehaus von außen", span: "md:col-span-2 md:row-span-2" },
-  { src: "/images/zimmer1.jpg", alt: "Zimmer mit bequemem Doppelbett" },
-  { src: "/images/bathroom.jpg", alt: "Helles Badezimmer mit Dachfenster" },
+  { src: "/images/doppelbett.jpg", alt: "Gemütliches Doppelbett" },
+  { src: "/images/balkon.jpg", alt: "Balkon bei Sonnenuntergang" },
 ];
 
 export default function Gallery() {
