@@ -14,6 +14,7 @@ const galleryImages = [
 export default function UeberUns() {
   const containerRef = useRef<HTMLDivElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
@@ -67,6 +68,37 @@ export default function UeberUns() {
     return () => ctx.revert();
   }, []);
 
+  /* Auto-scroll gallery continuously to the left (images move right-to-left) */
+  useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced || !trackRef.current) return;
+
+    const track = trackRef.current;
+    const halfWidth = track.scrollWidth / 2;
+
+    const tween = gsap.to(track, {
+      x: -halfWidth,
+      duration: 30,
+      ease: "none",
+      repeat: -1,
+      modifiers: {
+        x: gsap.utils.unitize((x) => parseFloat(x) % halfWidth),
+      },
+    });
+
+    /* Pause on hover */
+    const pause = () => tween.pause();
+    const play = () => tween.play();
+    track.addEventListener("mouseenter", pause);
+    track.addEventListener("mouseleave", play);
+
+    return () => {
+      tween.kill();
+      track.removeEventListener("mouseenter", pause);
+      track.removeEventListener("mouseleave", play);
+    };
+  }, []);
+
   return (
     <div ref={containerRef}>
       {/* ── Block 1: Willkommen — editorial two-column split (Brecon section01) ── */}
@@ -97,14 +129,14 @@ export default function UeberUns() {
         </div>
       </section>
 
-      {/* ── Horizontal-scroll gallery (Brecon section01 carousel) ── */}
+      {/* ── Auto-scrolling gallery (Brecon section01 carousel) ── */}
       <section ref={galleryRef} className="pb-[clamp(4rem,10vh,8rem)] overflow-hidden">
-        <div className="flex gap-3 md:gap-4 overflow-x-auto px-6 snap-x snap-mandatory scrollbar-hide">
-          {galleryImages.map((img, i) => (
+        <div ref={trackRef} className="flex gap-3 md:gap-4 w-max">
+          {[...galleryImages, ...galleryImages].map((img, i) => (
             <div
               key={i}
               data-gallery
-              className="flex-none w-[280px] md:w-[350px] lg:w-[420px] aspect-square relative snap-start overflow-hidden group"
+              className="flex-none w-[280px] md:w-[350px] lg:w-[420px] aspect-square relative overflow-hidden group"
             >
               <Image
                 src={img.src}
