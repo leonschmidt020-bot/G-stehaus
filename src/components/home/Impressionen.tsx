@@ -6,7 +6,7 @@ import { gsap } from "@/lib/gsap";
 
 const impressions = [
   { src: "/images/exterior.jpg", alt: "Das Gästehaus von außen" },
-  { src: "/images/bad-neu-1.jpg", alt: "Modernes Bad mit ebenerdiger Dusche" },
+  { src: "/images/bad-neu-2.jpg", alt: "Modernes Bad mit ebenerdiger Dusche" },
   { src: "/images/balkon2.jpg", alt: "Terrasse des Gästehauses" },
   { src: "/images/aufenthaltsraum1.jpg", alt: "Tische im Aufenthaltsraum" },
 ];
