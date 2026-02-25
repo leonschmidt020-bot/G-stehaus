@@ -4,17 +4,8 @@ import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 
-const galleryImages = [
-  { src: "/images/exterior2.jpg", alt: "Das Gästehaus von außen" },
-  { src: "/images/doppelbett.jpg", alt: "Gemütliches Doppelbett" },
-  { src: "/images/balkon.jpg", alt: "Balkon bei Sonnenuntergang" },
-  { src: "/images/aufenthalt.jpg", alt: "Heller Aufenthaltsraum" },
-];
-
 export default function UeberUns() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const galleryRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
@@ -42,44 +33,9 @@ export default function UeberUns() {
           }
         );
       });
-
-      /* Gallery items */
-      const items = containerRef.current!.querySelectorAll("[data-gallery]");
-      if (items.length) {
-        gsap.fromTo(
-          items,
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            stagger: 0.1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: galleryRef.current,
-              start: "top 85%",
-              once: true,
-            },
-          }
-        );
-      }
     }, containerRef);
 
     return () => ctx.revert();
-  }, []);
-
-  /* Auto-scroll: pause on hover via CSS class */
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    const pause = () => track.style.animationPlayState = "paused";
-    const play = () => track.style.animationPlayState = "running";
-    track.addEventListener("mouseenter", pause);
-    track.addEventListener("mouseleave", play);
-    return () => {
-      track.removeEventListener("mouseenter", pause);
-      track.removeEventListener("mouseleave", play);
-    };
   }, []);
 
   return (
@@ -112,32 +68,11 @@ export default function UeberUns() {
         </div>
       </section>
 
-      {/* ── Auto-scrolling gallery (Brecon section01 carousel) ── */}
-      <section ref={galleryRef} className="pb-[clamp(4rem,10vh,8rem)] overflow-hidden">
-        <div ref={trackRef} className="flex gap-3 md:gap-4 w-max animate-marquee">
-          {[...galleryImages, ...galleryImages].map((img, i) => (
-            <div
-              key={i}
-              data-gallery
-              className="flex-none w-[280px] md:w-[350px] lg:w-[420px] aspect-square relative overflow-hidden group"
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(max-width: 768px) 280px, (max-width: 1024px) 350px, 420px"
-                className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Full-bleed image (Brecon section02) ── */}
+      {/* ── Full-bleed room image (Brecon section02) ── */}
       <section className="relative w-full h-[70vh] min-h-[400px] max-h-[800px]">
         <Image
-          src="/images/balkon.jpg"
-          alt="Balkon bei Sonnenuntergang"
+          src="/images/doppelzimmer.jpg"
+          alt="Gemütliches Doppelzimmer mit grünen Kissen"
           fill
           sizes="100vw"
           className="object-cover"
@@ -170,7 +105,7 @@ export default function UeberUns() {
               <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-[17px]">
                 Trotz der verkehrsgünstigen Lage genießen Sie eine angenehme,
                 ruhige Atmosphäre. Der Bahnhof liegt nur wenige Gehminuten
-                entfernt – mit S-Bahn und Bus erreichen Sie Lörrach, Basel und
+                entfernt – mit Regionalbahn und Bus erreichen Sie Lörrach, Basel und
                 Freiburg bequem.
               </p>
               <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-[17px]">
