@@ -18,8 +18,10 @@ export default function Hero() {
     ).matches;
     if (prefersReduced || !sectionRef.current) return;
 
+    const isMobile = window.innerWidth < 768;
+
     const ctx = gsap.context(() => {
-      if (imageRef.current) {
+      if (imageRef.current && !isMobile) {
         gsap.fromTo(
           imageRef.current,
           { yPercent: 0 },
