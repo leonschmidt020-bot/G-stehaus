@@ -13,17 +13,19 @@ export default function UeberUns() {
     ).matches;
     if (prefersReduced || !containerRef.current) return;
 
+    const isMobile = window.innerWidth < 768;
+
     const ctx = gsap.context(() => {
       const textBlocks =
         containerRef.current!.querySelectorAll("[data-reveal]");
       textBlocks.forEach((block) => {
         gsap.fromTo(
           block,
-          { y: 40, opacity: 0 },
+          { y: isMobile ? 0 : 40, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            duration: 1.2,
+            duration: isMobile ? 0.5 : 1.2,
             ease: "power2.out",
             scrollTrigger: {
               trigger: block,

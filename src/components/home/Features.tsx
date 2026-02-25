@@ -43,16 +43,18 @@ export default function Features() {
     ).matches;
     if (prefersReduced || !sectionRef.current) return;
 
+    const isMobile = window.innerWidth < 768;
+
     const ctx = gsap.context(() => {
       const items = sectionRef.current!.querySelectorAll("[data-feature]");
       gsap.fromTo(
         items,
-        { opacity: 0, y: 25 },
+        { opacity: 0, y: isMobile ? 0 : 25 },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
-          stagger: 0.12,
+          duration: isMobile ? 0.5 : 1,
+          stagger: isMobile ? 0.06 : 0.12,
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
