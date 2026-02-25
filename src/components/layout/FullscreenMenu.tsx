@@ -12,6 +12,7 @@ interface FullscreenMenuProps {
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Zimmer", href: "/zimmer" },
+  { label: "Buchen", href: "/buchen" },
   { label: "Kontakt", href: "/kontakt" },
 ];
 

@@ -67,9 +67,14 @@ export default function ContactForm() {
             />
           </div>
 
-          <OrganicButton type="submit" variant="primary">
-            Nachricht senden
-          </OrganicButton>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <OrganicButton type="submit" variant="primary">
+              Nachricht senden
+            </OrganicButton>
+            <OrganicButton href="/buchen" variant="outline" arrow>
+              Zum Buchungsformular
+            </OrganicButton>
+          </div>
         </form>
       </div>
     </div>
