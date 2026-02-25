@@ -1,0 +1,90 @@
+{
+  "evals": [
+    {
+      "id": "corporate-landing-page",
+      "prompt": "Erstelle eine professionelle Corporate Landing Page für ein IT-Beratungsunternehmen namens 'TechVision'. Die Seite soll einen Hero-Bereich mit dem Slogan 'Innovation trifft Expertise', einen Features-Bereich mit 3 Dienstleistungen (Cloud-Migration, Digitalisierung, IT-Security), und einen CTA-Bereich enthalten. Design: Modern, minimalistisch, Hauptfarbe: Blau (#2563eb).",
+      "expectations": [
+        "HTML-Datei ist vollständig und valide",
+        "Responsive Design funktioniert auf mobilen Geräten",
+        "Hero-Sektion mit großem Titel und CTA-Buttons vorhanden",
+        "3 Feature-Cards mit Icons und Beschreibungen",
+        "Moderne Animationen beim Scrollen (fade-in)",
+        "CSS Custom Properties (Variablen) werden verwendet",
+        "Mobile-First Media Queries vorhanden",
+        "Performance-optimierte Bilder mit lazy loading",
+        "Sticky Navigation Header",
+        "Farbkontrast ist WCAG AA konform"
+      ]
+    },
+    {
+      "id": "responsive-navigation",
+      "prompt": "Erstelle eine responsive Navigation für eine Corporate Website mit Logo links, Menüpunkten (Home, Leistungen, Über uns, Kontakt) in der Mitte, und einem CTA-Button rechts. Auf Mobile soll ein Hamburger-Menü erscheinen. Die Navigation soll beim Scrollen einen dezenten Schatten bekommen.",
+      "expectations": [
+        "Desktop-Navigation mit horizontalem Layout",
+        "Mobile Hamburger-Menü funktioniert",
+        "Sticky Header mit Scroll-Effekt",
+        "Smooth Transitions für Menu-Toggle",
+        "ARIA-Labels für Accessibility",
+        "Hover-Effekte auf Links",
+        "Mobile Menu öffnet/schließt mit Animation",
+        "CTA-Button ist visuell hervorgehoben"
+      ]
+    },
+    {
+      "id": "animated-hero-section",
+      "prompt": "Erstelle eine Hero-Sektion mit Gradient-Background, großem Titel, Untertitel, zwei CTA-Buttons und einem Bild rechts. Die Elemente sollen nacheinander mit fade-in Animationen erscheinen. Performance: Nur transform und opacity animieren.",
+      "expectations": [
+        "Gradient Background verwendet",
+        "Zweispaltiges Layout (Text links, Bild rechts)",
+        "Staggered fade-in Animationen",
+        "Nur GPU-beschleunigte Properties (transform, opacity) animiert",
+        "Responsive auf Mobile (Spalten stacken)",
+        "Fluid Typography mit clamp()",
+        "Buttons mit Hover-Effekten",
+        "prefers-reduced-motion Support"
+      ]
+    },
+    {
+      "id": "feature-cards-grid",
+      "prompt": "Erstelle einen Raster mit 3 Feature-Cards. Jede Card hat ein Icon oben, einen Titel, eine Beschreibung und einen hover-Effekt (leichtes Anheben mit Schatten). Das Grid soll auf Mobile auf 1 Spalte, auf Tablet auf 2 Spalten und auf Desktop auf 3 Spalten umschalten.",
+      "expectations": [
+        "CSS Grid Layout verwendet",
+        "3 Spalten auf Desktop (>1024px)",
+        "2 Spalten auf Tablet (640px-1023px)",
+        "1 Spalte auf Mobile (<640px)",
+        "Cards mit Schatten und Border-Radius",
+        "Hover-Effekt: translateY + box-shadow",
+        "Icons sind zentriert",
+        "Konsistente Spacing mit CSS Variables"
+      ]
+    },
+    {
+      "id": "performance-optimized",
+      "prompt": "Erstelle eine einfache Landing Page mit Hero-Bild, Überschrift, Text und CTA. Optimiere sie maximal für Performance: Critical CSS inline, Bilder lazy loading, responsive images mit WebP, Fonts mit font-display: swap.",
+      "expectations": [
+        "Critical CSS im <head> inline",
+        "Restliches CSS asynchron geladen",
+        "Bilder mit loading='lazy'",
+        "WebP mit JPG Fallback (<picture>)",
+        "Responsive srcset vorhanden",
+        "Font mit font-display: swap",
+        "Kein render-blocking JavaScript",
+        "Meta viewport tag vorhanden"
+      ]
+    },
+    {
+      "id": "accessible-form",
+      "prompt": "Erstelle ein Kontaktformular mit Name, Email, Nachricht und Submit-Button. Es soll voll zugänglich sein mit ARIA-Labels, Fokus-Indikatoren, und valider HTML5-Validierung. Design: Minimalistisch mit klaren Feldgrenzen.",
+      "expectations": [
+        "Alle Input-Felder haben Labels",
+        "ARIA-Labels wo nötig",
+        "HTML5 Validierung (required, type='email')",
+        "Sichtbare Focus-Indikatoren (:focus-visible)",
+        "Error States sind klar erkennbar",
+        "Submit-Button ist groß genug (min 44x44px)",
+        "Form ist keyboard-navigierbar",
+        "Placeholder-Text hat ausreichend Kontrast"
+      ]
+    }
+  ]
+}

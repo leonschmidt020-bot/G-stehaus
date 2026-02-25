@@ -8,7 +8,6 @@ import styles from "@/styles/glassmorphism.module.css";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Zimmer", href: "/zimmer" },
-  { label: "Buchen", href: "/buchen" },
   { label: "Kontakt", href: "/kontakt" },
 ];
 

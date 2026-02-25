@@ -1,0 +1,127 @@
+{
+  "evals": [
+    {
+      "id": "simple-landing-page",
+      "prompt": "Ich zeige dir einen Screenshot einer einfachen Landing Page. Analysiere das Design (Farben, Fonts, Layout) und erstelle dann den vollständigen HTML/CSS Code, um sie nachzubauen.",
+      "files": ["landing-page.png"],
+      "expectations": [
+        "Design-Analyse wird durchgeführt vor Code-Generierung",
+        "Farben werden extrahiert und als CSS Custom Properties definiert",
+        "Typografie (Font-Größen, Weights) wird analysiert",
+        "Spacing-System wird dokumentiert",
+        "HTML-Struktur ist semantisch",
+        "CSS verwendet Design-Tokens statt Hard-Coded Values",
+        "Layout matcht das Bild pixelgenau",
+        "Responsive Breakpoints sind vorhanden",
+        "Implementation Notes erklären Annahmen"
+      ]
+    },
+    {
+      "id": "complex-corporate-site",
+      "prompt": "Analysiere diesen Screenshot einer Corporate Website und erstelle den Code. Achte besonders auf: 1) Exakte Farbpalette, 2) Grid-System, 3) Komponenten-Hierarchie.",
+      "files": ["corporate-site.png"],
+      "expectations": [
+        "Vollständige Design-System Dokumentation erstellt",
+        "Alle sichtbaren Komponenten werden identifiziert",
+        "Grid-System wird korrekt repliziert",
+        "Farbpalette wird vollständig extrahiert",
+        "Komponenten sind modular und wiederverwendbar",
+        "Navigation ist sticky (falls im Bild sichtbar)",
+        "Cards haben Hover-Effekte",
+        "Footer-Layout ist korrekt"
+      ]
+    },
+    {
+      "id": "navigation-only",
+      "prompt": "Aus diesem Screenshot: Erstelle NUR die Navigation. Extrahiere Farben, Spacing und erstelle einen responsiven Header mit Mobile Menu.",
+      "files": ["full-website.png"],
+      "expectations": [
+        "Nur Navigation-Code wird generiert",
+        "Desktop-Layout korrekt",
+        "Mobile Hamburger-Menu implementiert",
+        "Sticky Header Funktion vorhanden",
+        "Farben aus dem Bild extrahiert",
+        "Logo-Platzierung korrekt",
+        "Menu-Items Spacing akkurat",
+        "JavaScript für Mobile Menu enthalten"
+      ]
+    },
+    {
+      "id": "color-extraction",
+      "prompt": "Analysiere diesen Screenshot und extrahiere NUR das Design-System (Farben, Fonts, Spacing). Erstelle CSS Custom Properties, aber noch keinen vollständigen Code.",
+      "files": ["website-design.png"],
+      "expectations": [
+        "Primärfarben werden identifiziert",
+        "Sekundärfarben werden identifiziert",
+        "Textfarben (heading, body, muted) werden extrahiert",
+        "Background-Farben dokumentiert",
+        "Font-Families werden erkannt",
+        "Font-Größen für h1-h6 und body gemessen",
+        "Spacing-Werte dokumentiert",
+        "CSS Custom Properties werden generiert",
+        "Kein vollständiger HTML-Code (nur Design-System)"
+      ]
+    },
+    {
+      "id": "hero-section-recreation",
+      "prompt": "Baue nur die Hero-Sektion aus diesem Screenshot nach. Achte auf den Gradient-Background, Typografie und Button-Styles.",
+      "files": ["hero-screenshot.png"],
+      "expectations": [
+        "Hero-Sektion HTML korrekt strukturiert",
+        "Gradient-Background wird repliziert",
+        "Typografie (Größen, Weights) stimmt überein",
+        "Button-Styles matchen das Design",
+        "Layout (Text links, Bild rechts) korrekt",
+        "Spacing zwischen Elementen akkurat",
+        "Responsive Design für Mobile",
+        "Hover-Effekte auf Buttons"
+      ]
+    },
+    {
+      "id": "card-grid-extraction",
+      "prompt": "Extrahiere das Card-Grid aus diesem Screenshot. Erstelle wiederverwendbare Card-Komponenten mit exakten Styles (Schatten, Border-Radius, Spacing).",
+      "files": ["cards-section.png"],
+      "expectations": [
+        "Grid-Layout korrekt (Anzahl Spalten stimmt)",
+        "Card-Styles werden genau repliziert",
+        "Box-Shadow wird akkurat nachgebildet",
+        "Border-Radius stimmt überein",
+        "Icon-Platzierung korrekt",
+        "Card-Padding gemessen und angewendet",
+        "Grid-Gap ist akkurat",
+        "Responsive Grid (Mobile 1 Spalte, Desktop 3 Spalten)",
+        "Hover-Effekt auf Cards"
+      ]
+    },
+    {
+      "id": "low-quality-image",
+      "prompt": "Dieses Bild ist etwas unscharf. Erstelle trotzdem den Code und dokumentiere deine Annahmen.",
+      "files": ["blurry-screenshot.png"],
+      "expectations": [
+        "Code wird trotz unscharfem Bild erstellt",
+        "Annahmen werden klar dokumentiert",
+        "Best-Guess Farben werden verwendet",
+        "Spacing wird geschätzt mit Notizen",
+        "Font-Größen werden approximiert",
+        "Implementation Notes erklären Unsicherheiten",
+        "Code ist trotzdem funktional",
+        "Standard-Werte werden sinnvoll eingesetzt"
+      ]
+    },
+    {
+      "id": "mobile-screenshot",
+      "prompt": "Dieser Screenshot zeigt nur die Mobile-Ansicht. Erstelle den Code und leite daraus ein Desktop-Layout ab.",
+      "files": ["mobile-view.png"],
+      "expectations": [
+        "Mobile-Layout wird exakt repliziert",
+        "Desktop-Layout wird sinnvoll abgeleitet",
+        "Dokumentation erklärt Desktop-Annahmen",
+        "Responsive Breakpoints vorhanden",
+        "Mobile-First CSS Ansatz",
+        "Stack-Layout auf Mobile korrekt",
+        "Grid/Multi-Column auf Desktop",
+        "Navigation-Adaption dokumentiert"
+      ]
+    }
+  ]
+}

@@ -71,9 +71,6 @@ export default function ContactForm() {
             <OrganicButton type="submit" variant="primary">
               Nachricht senden
             </OrganicButton>
-            <OrganicButton href="/buchen" variant="outline" arrow>
-              Zum Buchungsformular
-            </OrganicButton>
           </div>
         </form>
       </div>

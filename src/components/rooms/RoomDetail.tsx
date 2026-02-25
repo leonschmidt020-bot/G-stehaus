@@ -248,8 +248,8 @@ export default function RoomDetail({
               innerhalb weniger Stunden.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <OrganicButton href={`/buchen?zimmer=${encodeURIComponent(title)}`} variant="primary" arrow>
-                Verfügbarkeit anfragen
+              <OrganicButton href={`mailto:info@dasgaestehaus-eimeldingen.de?subject=Buchungsanfrage%20${encodeURIComponent(title)}`} variant="primary" arrow>
+                Per E-Mail anfragen
               </OrganicButton>
               <OrganicButton href="/zimmer" variant="outline" arrow>
                 Alle Zimmer ansehen
