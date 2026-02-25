@@ -14,10 +14,10 @@ const rooms = [
     priceNote: "pro Nacht",
     guests: "1 Person",
     size: "ca. 20 m²",
-    image: "/images/einzelzimmer.jpg",
+    image: "/images/einzelzimmer-neu.jpg",
     description:
-      "Ruhig und funktional. Bequemes Bett, Klimaanlage, Flachbild-TV, eigenes Bad mit ebenerdiger Dusche und kostenloses WLAN.",
-    extras: ["Klimaanlage", "Flachbild-TV", "Ebenerdige Dusche"],
+      "Ruhig und funktional. Bequemes Bett, Klimaanlage, Flachbild-TV, eigenes Bad mit ebenerdiger Dusche und kostenloses WLAN. Einige Zimmer mit Balkon.",
+    extras: ["Klimaanlage", "Teilw. Balkon", "Ebenerdige Dusche"],
   },
   {
     title: "Doppelzimmer",
@@ -39,7 +39,7 @@ const rooms = [
     priceNote: "auf Anfrage",
     guests: "Familien",
     size: "ca. 20 m²",
-    image: "/images/familienzimmer.jpg",
+    image: "/images/familienzimmer-neu.jpg",
     description:
       "Für Familien bieten wir individuelle Lösungen an. Sprechen Sie uns einfach an, wir finden die passende Zimmerkombination.",
     extras: ["Klimaanlage", "Individuell", "Ebenerdige Dusche"],

@@ -201,19 +201,19 @@ function StepZimmerwahl({
               key={room.id}
               type="button"
               onClick={() => toggle(room.id)}
-              className={`group relative flex flex-col sm:flex-row items-stretch overflow-hidden rounded-2xl border-2 transition-all duration-300 text-left ${
+              className={`group relative flex flex-row items-stretch overflow-hidden rounded-2xl border-2 transition-all duration-300 text-left ${
                 isSelected
                   ? "border-sage bg-[var(--color-sage-muted)]/20 shadow-[0_8px_30px_rgba(139,158,139,0.15)]"
                   : "border-[var(--color-primary)]/8 bg-[var(--surface)] hover:border-sage/30 hover:shadow-[0_4px_20px_-4px_rgba(74,66,57,0.08)]"
               }`}
             >
               {/* Image */}
-              <div className="relative w-full sm:w-48 h-44 sm:h-auto shrink-0 overflow-hidden">
+              <div className="relative w-28 min-h-[120px] sm:w-48 shrink-0 overflow-hidden">
                 <Image
                   src={room.image}
                   alt={room.title}
                   fill
-                  sizes="(max-width: 640px) 100vw, 192px"
+                  sizes="(max-width: 640px) 112px, 192px"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 {room.popular && (
@@ -224,25 +224,25 @@ function StepZimmerwahl({
               </div>
 
               {/* Content */}
-              <div className="flex-1 p-5 sm:p-6 flex flex-col justify-between">
+              <div className="flex-1 p-3 sm:p-6 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-lg font-serif text-[var(--color-primary)]">
+                  <div className="flex items-start justify-between gap-2 sm:gap-4">
+                    <h3 className="text-sm sm:text-lg font-serif text-[var(--color-primary)]">
                       {room.title}
                     </h3>
                     <div className="text-right shrink-0">
-                      <span className="text-lg font-serif text-[var(--color-primary)]">
+                      <span className="text-sm sm:text-lg font-serif text-[var(--color-primary)]">
                         {room.price}
                       </span>
-                      <span className="block text-xs text-[var(--color-earth-muted)]">
+                      <span className="block text-[10px] sm:text-xs text-[var(--color-earth-muted)]">
                         {room.priceNote}
                       </span>
                     </div>
                   </div>
-                  <p className="text-sm text-[var(--color-text)] font-light mt-2 leading-relaxed">
+                  <p className="hidden sm:block text-sm text-[var(--color-text)] font-light mt-2 leading-relaxed">
                     {room.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 mt-3">
+                  <div className="hidden sm:flex flex-wrap gap-2 mt-3">
                     {room.extras.map((extra) => (
                       <span
                         key={extra}
@@ -261,7 +261,7 @@ function StepZimmerwahl({
                 </div>
 
                 {/* Checkmark */}
-                <div className="mt-4 flex items-center gap-2">
+                <div className="mt-2 sm:mt-4 flex items-center gap-2">
                   <span
                     className={`inline-flex items-center justify-center w-5 h-5 rounded-full border-2 transition-all duration-300 ${
                       isSelected

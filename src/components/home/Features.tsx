@@ -9,8 +9,8 @@ const features = [
     text: "Direkt vor dem Haus.",
   },
   {
-    title: "Kaffee & Tee, rund um die Uhr",
-    text: "Im Flur steht unsere Kaffeestation. Bedienen Sie sich, wann immer Sie möchten. Geht aufs Haus.",
+    title: "Kaffee & Tee",
+    text: "Starten Sie mit einer Tasse Kaffee oder Tee in den Tag. Kostenfreie Nutzung.",
   },
   {
     title: "Kein Frühstück, aber alles nah",
@@ -21,12 +21,16 @@ const features = [
     text: "Alle Zimmer haben eine Klimaanlage und kostenloses WLAN. Dazu Flachbild-TV und eigenes Bad mit ebenerdiger Dusche.",
   },
   {
-    title: "Check-in flexibel",
-    text: "Regulär ab 16 Uhr. Wenn Sie früher oder später kommen, sagen Sie einfach Bescheid, wir finden eine Lösung.",
+    title: "Check-in Zeiten",
+    text: "Von 16 Uhr bis 20 Uhr. Oder nach vorheriger Vereinbarung.",
   },
   {
     title: "Bezahlung",
-    text: "Bar, EC-Karte oder Kreditkarte, wie es Ihnen am liebsten ist. Bitte beachten Sie: Haustiere können wir leider nicht aufnehmen.",
+    text: "Direkt beim Check-in bar, per EC-Karte oder Kreditkarte.",
+  },
+  {
+    title: "Haustiere",
+    text: "Übernachtungen mit Haustieren sind leider nicht möglich.",
   },
 ];
 

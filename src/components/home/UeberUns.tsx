@@ -152,8 +152,8 @@ export default function UeberUns() {
               className="relative aspect-[4/5] overflow-hidden"
             >
               <Image
-                src="/images/doppelzimmer.jpg"
-                alt="Doppelzimmer mit grünen Kissen"
+                src="/images/familienzimmer-neu.jpg"
+                alt="Familienzimmer"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"

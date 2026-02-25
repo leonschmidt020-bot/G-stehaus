@@ -1,7 +1,7 @@
 import RoomDetail from "@/components/rooms/RoomDetail";
 
 const images = [
-  { src: "/images/einzelzimmer.jpg", alt: "Einzelzimmer mit bequemem Bett" },
+  { src: "/images/einzelzimmer-neu.jpg", alt: "Einzelzimmer mit bequemem Bett" },
   { src: "/images/einzelbett.jpg", alt: "Einzelbett mit Nachttischen" },
   { src: "/images/zimmer-ug.jpg", alt: "Zimmer mit TV, Sitzecke und Schreibtisch" },
 ];
@@ -13,6 +13,7 @@ const amenities = [
   "Kostenloses WLAN",
   "Eigenes Bad mit ebenerdiger Dusche",
   "Handtücher & Bettwäsche",
+  "Teilweise mit Balkon",
   "Schreibtisch",
   "Kostenloser Parkplatz",
 ];
@@ -26,7 +27,7 @@ export default function EinzelzimmerPage() {
       priceNote="pro Nacht"
       guests="1 Person"
       size="ca. 20 m²"
-      description="Unser Einzelzimmer bietet alles, was Sie für einen erholsamen Aufenthalt brauchen. Das Zimmer ist ruhig gelegen und funktional eingerichtet – ideal für Geschäftsreisende oder Durchreisende, die Wert auf Komfort und Sauberkeit legen."
+      description="Unser Einzelzimmer bietet alles, was Sie für einen erholsamen Aufenthalt brauchen. Das Zimmer ist ruhig gelegen und funktional eingerichtet – ideal für Geschäftsreisende oder Durchreisende, die Wert auf Komfort und Sauberkeit legen. Einige Zimmer verfügen über einen Balkon."
       details="Jedes Zimmer verfügt über ein bequemes Bett, Klimaanlage, Flachbild-TV und ein eigenes Bad mit ebenerdiger Dusche. Kostenloses WLAN ist selbstverständlich. Im Haus stehen Ihnen außerdem eine Kaffee- und Teestation sowie ein Gemeinschaftskühlschrank zur Verfügung."
       images={images}
       amenities={amenities}

@@ -1,7 +1,7 @@
 import RoomDetail from "@/components/rooms/RoomDetail";
 
 const images = [
-  { src: "/images/familienzimmer.jpg", alt: "Familienzimmer mit drei Betten" },
+  { src: "/images/familienzimmer-neu.jpg", alt: "Familienzimmer mit Doppelbett und Einzelbett" },
   { src: "/images/familien-betten.jpg", alt: "Doppelbett und Einzelbett" },
   { src: "/images/zimmer-og.jpg", alt: "Zimmer mit Schreibtisch und Schrank" },
 ];
