@@ -4,6 +4,7 @@ const images = [
   { src: "/images/doppelzimmer.jpg", alt: "Doppelzimmer mit Doppelbett" },
   { src: "/images/doppelbett.jpg", alt: "Gemütliches Doppelbett" },
   { src: "/images/balkon.jpg", alt: "Balkon bei Sonnenuntergang" },
+  { src: "/images/bad-neu-2.jpg", alt: "Badezimmer mit ebenerdiger Dusche" },
 ];
 
 const amenities = [

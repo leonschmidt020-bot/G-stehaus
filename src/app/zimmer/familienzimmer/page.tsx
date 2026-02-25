@@ -4,6 +4,7 @@ const images = [
   { src: "/images/familienzimmer-neu.jpg", alt: "Familienzimmer mit Doppelbett und Einzelbett" },
   { src: "/images/familien-betten.jpg", alt: "Doppelbett und Einzelbett" },
   { src: "/images/zimmer-og.jpg", alt: "Zimmer mit Schreibtisch und Schrank" },
+  { src: "/images/bad-neu-3.jpg", alt: "Badezimmer mit ebenerdiger Dusche" },
 ];
 
 const amenities = [

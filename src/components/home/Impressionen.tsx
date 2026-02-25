@@ -5,12 +5,10 @@ import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 
 const impressions = [
-  { src: "/images/bad1.jpg", alt: "Modernes Bad mit ebenerdiger Dusche" },
-  { src: "/images/bad2.jpg", alt: "Badezimmer mit Waschbecken und Dusche" },
-  { src: "/images/bad3.jpg", alt: "Geräumiges Bad mit Glasdusche" },
-  { src: "/images/aufenthalt.jpg", alt: "Heller Aufenthaltsraum" },
-  { src: "/images/balkon.jpg", alt: "Balkon bei Sonnenuntergang" },
-  { src: "/images/exterior2.jpg", alt: "Das Gästehaus von außen" },
+  { src: "/images/exterior.jpg", alt: "Das Gästehaus von außen" },
+  { src: "/images/bad-neu-1.jpg", alt: "Modernes Bad mit ebenerdiger Dusche" },
+  { src: "/images/balkon2.jpg", alt: "Terrasse des Gästehauses" },
+  { src: "/images/aufenthaltsraum1.jpg", alt: "Tische im Aufenthaltsraum" },
 ];
 
 export default function Impressionen() {
@@ -68,20 +66,18 @@ export default function Impressionen() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+        <div className="flex flex-col gap-4">
           {impressions.map((img, i) => (
             <div
               key={i}
               data-impression
-              className={`relative overflow-hidden group ${
-                i === 0 ? "row-span-2 aspect-[3/4]" : "aspect-square"
-              }`}
+              className="relative w-full aspect-[16/9] overflow-hidden group"
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
-                sizes="(max-width: 768px) 50vw, 33vw"
+                sizes="(max-width: 768px) 100vw, 80vw"
                 className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
               />
             </div>
