@@ -154,8 +154,8 @@ export default function UeberUns() {
               className="relative aspect-[4/5] overflow-hidden"
             >
               <Image
-                src="/images/familienzimmer-neu.jpg"
-                alt="Familienzimmer"
+                src="/images/zimmer-kissen-blau.jpg"
+                alt="Familienzimmer mit blauen Kissen"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"

@@ -39,7 +39,7 @@ const rooms = [
     priceNote: "auf Anfrage",
     guests: "Familien",
     size: "ca. 20 m²",
-    image: "/images/familienzimmer-neu.jpg",
+    image: "/images/zimmer-kissen-blau.jpg",
     description:
       "Für Familien bieten wir individuelle Lösungen an. Sprechen Sie uns einfach an, wir finden die passende Zimmerkombination.",
     extras: ["Klimaanlage", "Individuell", "Ebenerdige Dusche"],
@@ -89,9 +89,8 @@ export default function RoomGrid() {
         <div
           key={i}
           data-room-card
-          className={`rounded-[var(--radius-xl)] overflow-hidden group flex flex-col transition-shadow duration-500 hover:shadow-premium-ui border border-[var(--color-primary)]/8 bg-[var(--surface)] ${
-            room.popular ? "ring-1 ring-sage/20" : ""
-          }`}
+          className={`rounded-[var(--radius-xl)] overflow-hidden group flex flex-col transition-shadow duration-500 hover:shadow-premium-ui border border-[var(--color-primary)]/8 bg-[var(--surface)] ${room.popular ? "ring-1 ring-sage/20" : ""
+            }`}
         >
           <Link
             href={`/zimmer/${room.slug}`}
