@@ -46,9 +46,6 @@ export default function CheckInInfo() {
             <h3 className="text-lg font-serif text-[var(--color-primary)] mb-2">
               Täglich von 16:00 bis 20:00 Uhr
             </h3>
-            <p className="text-[var(--color-text)] font-light leading-relaxed text-[15px]">
-              Persönliche Übergabe vor Ort.
-            </p>
           </div>
 
           <div data-info>
@@ -58,9 +55,6 @@ export default function CheckInInfo() {
             <h3 className="text-lg font-serif text-[var(--color-primary)] mb-2">
               Bis 10:00 Uhr
             </h3>
-            <p className="text-[var(--color-text)] font-light leading-relaxed text-[15px]">
-              Oder nach vorheriger Vereinbarung.
-            </p>
           </div>
 
           <div data-info>
@@ -70,9 +64,6 @@ export default function CheckInInfo() {
             <h3 className="text-lg font-serif text-[var(--color-primary)] mb-2">
               Bar, EC-Karte oder Kreditkarte
             </h3>
-            <p className="text-[var(--color-text)] font-light leading-relaxed text-[15px]">
-              Wie es Ihnen am liebsten ist.
-            </p>
           </div>
         </div>
       </div>

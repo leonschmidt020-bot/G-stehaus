@@ -7,14 +7,14 @@ const images = [
 ];
 
 const amenities = [
-  "Bequemes Einzelbett",
+  "Bequemes Bett",
   "Klimaanlage",
   "Flachbild-TV",
   "Kostenloses WLAN",
   "Eigenes Bad mit ebenerdiger Dusche",
   "Handtücher & Bettwäsche",
   "Teilweise mit Balkon",
-  "Schreibtisch",
+  "Tisch",
   "Kostenloser Parkplatz",
 ];
 

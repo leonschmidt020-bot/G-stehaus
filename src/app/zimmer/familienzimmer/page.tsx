@@ -8,7 +8,7 @@ const images = [
 ];
 
 const amenities = [
-  "Doppelbett + Zustellbetten",
+  "Doppelbett + Schlafsofa",
   "Klimaanlage",
   "Flachbild-TV",
   "Kostenloses WLAN",
