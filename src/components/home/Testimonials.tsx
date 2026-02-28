@@ -71,31 +71,10 @@ export default function Testimonials() {
             </div>
           </div>
 
-          <div className="space-y-10">
-            {reviews.map((review, i) => (
-              <blockquote
-                key={i}
-                data-review
-                className="border-t border-[var(--color-primary)]/10 pt-8 first:border-t-0 first:pt-0"
-              >
-                <p className="text-[var(--color-primary)] font-serif italic text-base md:text-lg leading-relaxed mb-5">
-                  &ldquo;{review.text}&rdquo;
-                </p>
-                <footer className="flex items-center justify-between text-sm">
-                  <div>
-                    <cite className="not-italic font-medium text-[var(--color-primary)] text-[13px] tracking-wide">
-                      {review.name}
-                    </cite>
-                    <p className="text-earth-muted text-xs mt-0.5">
-                      {review.date}
-                    </p>
-                  </div>
-                  <span className="text-earth-muted text-xs">
-                    {review.source}
-                  </span>
-                </footer>
-              </blockquote>
-            ))}
+          <div data-review>
+            <p className="text-[var(--color-primary)] font-serif italic text-base md:text-lg leading-relaxed">
+              Unsere Gäste schätzen besonders die ruhige Lage, die Sauberkeit und die persönliche Atmosphäre.
+            </p>
           </div>
         </div>
       </div>

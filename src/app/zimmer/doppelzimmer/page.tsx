@@ -8,7 +8,7 @@ const images = [
 ];
 
 const amenities = [
-  "Bequemes Doppelbett",
+  "Bequemes Bett",
   "Klimaanlage",
   "Flachbild-TV",
   "Kostenloses WLAN",
@@ -27,7 +27,7 @@ export default function DoppelzimmerPage() {
       priceNote="pro Nacht"
       guests="2 Personen"
       size="ca. 20 m²"
-      description="Unser Doppelzimmer bietet Platz und Komfort für zwei Personen. Gemütlich eingerichtet mit einem bequemen Doppelbett, ist es die ideale Wahl für Paare, Freunde oder Kollegen auf Geschäftsreise."
+      description="Unser Doppelzimmer bietet Platz und Komfort für zwei Personen. Gemütlich eingerichtet mit einem bequemen Bett, ist es die ideale Wahl für Paare, Freunde oder Kollegen auf Geschäftsreise."
       details="Alle Doppelzimmer sind mit Klimaanlage, Flachbild-TV, eigenem Bad mit ebenerdiger Dusche und kostenlosem WLAN ausgestattet. Einige Zimmer verfügen über einen Balkon. Im Haus stehen Ihnen eine Kaffee- und Teestation sowie ein Gemeinschaftskühlschrank zur Verfügung."
       images={images}
       amenities={amenities}
