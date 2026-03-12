@@ -2,15 +2,13 @@
 
 import { useRef, useEffect } from "react";
 import { gsap } from "@/lib/gsap";
+import type { NearbySpot } from "@/lib/supabase/types";
 
-const spots = [
-  { name: "Bäckerei", walk: "5 Min.", drive: null },
-  { name: "Aldi", walk: "5 Min.", drive: "2 Min." },
-  { name: "Penny", walk: "5 Min.", drive: "2 Min." },
-  { name: "DM", walk: "5 Min.", drive: "2 Min." },
-];
+interface NearbySpotsProps {
+  spots: NearbySpot[];
+}
 
-export default function NearbySpots() {
+export default function NearbySpots({ spots }: NearbySpotsProps) {
   const stripRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,7 +30,6 @@ export default function NearbySpots() {
         },
       });
 
-      // Lines draw in from left
       tl.fromTo(
         lines,
         { scaleX: 0 },
@@ -44,7 +41,6 @@ export default function NearbySpots() {
         }
       );
 
-      // Names fade up
       tl.fromTo(
         texts,
         { y: 10, opacity: 0 },
@@ -58,7 +54,6 @@ export default function NearbySpots() {
         "-=0.6"
       );
 
-      // Details fade in
       tl.fromTo(
         details,
         { y: 6, opacity: 0 },
@@ -85,7 +80,7 @@ export default function NearbySpots() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-6 md:gap-x-10">
           {spots.map((spot) => (
-            <div key={spot.name} data-spot>
+            <div key={spot.id} data-spot>
               <div
                 data-line
                 className="h-px bg-[var(--color-primary)]/20 mb-4 origin-left"
@@ -100,11 +95,11 @@ export default function NearbySpots() {
                 data-detail
                 className="text-[var(--color-text)] font-light text-[13px] mt-1"
               >
-                {spot.walk} zu Fuß
-                {spot.drive && (
+                {spot.walk_time} zu Fuß
+                {spot.drive_time && (
                   <span className="text-[var(--color-text)]/50">
                     {" · "}
-                    {spot.drive} mit Auto
+                    {spot.drive_time} mit Auto
                   </span>
                 )}
               </p>

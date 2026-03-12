@@ -3,7 +3,17 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "@/lib/gsap";
 
-export default function CheckInInfo() {
+interface CheckInInfoProps {
+  checkinTime?: string;
+  checkoutTime?: string;
+  paymentMethods?: string;
+}
+
+export default function CheckInInfo({
+  checkinTime = "Täglich von 16:00 bis 20:00 Uhr",
+  checkoutTime = "Bis 10:00 Uhr",
+  paymentMethods = "Bar, EC-Karte oder Kreditkarte",
+}: CheckInInfoProps) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -44,7 +54,7 @@ export default function CheckInInfo() {
               Check-in
             </p>
             <h3 className="text-lg font-serif text-[var(--color-primary)] mb-2">
-              Täglich von 16:00 bis 20:00 Uhr
+              {checkinTime}
             </h3>
           </div>
 
@@ -53,7 +63,7 @@ export default function CheckInInfo() {
               Check-out
             </p>
             <h3 className="text-lg font-serif text-[var(--color-primary)] mb-2">
-              Bis 10:00 Uhr
+              {checkoutTime}
             </h3>
           </div>
 
@@ -62,7 +72,7 @@ export default function CheckInInfo() {
               Bezahlung
             </p>
             <h3 className="text-lg font-serif text-[var(--color-primary)] mb-2">
-              Bar, EC-Karte oder Kreditkarte
+              {paymentMethods}
             </h3>
           </div>
         </div>

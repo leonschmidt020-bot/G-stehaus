@@ -4,7 +4,33 @@ import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 
-export default function UeberUns() {
+interface UeberUnsProps {
+  aboutTitle: string;
+  aboutText1: string;
+  aboutText2: string;
+  locationTitle: string;
+  locationText1: string;
+  locationText2: string;
+  locationText3: string;
+  roomsTitle: string;
+  roomsText1: string;
+  roomsText2: string;
+  roomsText3: string;
+}
+
+export default function UeberUns({
+  aboutTitle,
+  aboutText1,
+  aboutText2,
+  locationTitle,
+  locationText1,
+  locationText2,
+  locationText3,
+  roomsTitle,
+  roomsText1,
+  roomsText2,
+  roomsText3,
+}: UeberUnsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -42,7 +68,7 @@ export default function UeberUns() {
 
   return (
     <div ref={containerRef}>
-      {/* ── Block 1: Willkommen — editorial two-column split (Brecon section01) ── */}
+      {/* Block 1: Willkommen */}
       <section className="py-[clamp(6rem,14vh,10rem)]">
         <div className="container mx-auto px-6 max-w-6xl">
           <div
@@ -51,26 +77,22 @@ export default function UeberUns() {
           >
             <div>
               <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-serif text-[var(--color-primary)] leading-tight">
-                Willkommen im Gästehaus
+                {aboutTitle}
               </h2>
             </div>
             <div className="space-y-5">
               <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-[17px]">
-                Das Gästehaus in Eimeldingen verfügt über sechs gemütlich
-                eingerichtete Zimmer für Geschäftsreisende und
-                Urlaubsgäste. Sauber und persönlich.
+                {aboutText1}
               </p>
               <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-[17px]">
-                Alle Zimmer haben kostenloses WLAN, Klimaanlage, Flachbild-TV
-                und ein eigenes Bad mit ebenerdiger Dusche. Einige Zimmer haben
-                einen Balkon.
+                {aboutText2}
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Full-bleed room image (Brecon section02) ── */}
+      {/* Full-bleed room image */}
       <section className="relative w-full h-[70vh] min-h-[400px] max-h-[800px]">
         <Image
           src="/images/doppelzimmer.jpg"
@@ -81,7 +103,7 @@ export default function UeberUns() {
         />
       </section>
 
-      {/* ── Block 2: Lage — editorial two-column split (Brecon section04) ── */}
+      {/* Block 2: Lage */}
       <section className="py-[clamp(6rem,14vh,10rem)]">
         <div className="container mx-auto px-6 max-w-6xl">
           <div
@@ -93,33 +115,25 @@ export default function UeberUns() {
                 Lage
               </p>
               <h3 className="text-[clamp(1.5rem,3vw,2.25rem)] font-serif text-[var(--color-primary)] leading-tight">
-                Im Dreiländereck Deutschland–Frankreich–Schweiz
+                {locationTitle}
               </h3>
             </div>
             <div className="space-y-5">
               <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-[17px]">
-                Eimeldingen liegt im Dreiländereck
-                Deutschland–Frankreich–Schweiz. Die Schweizer Grenze, Basel und
-                Lörrach erreichen Sie in wenigen Minuten. Die Autobahn A5
-                befindet sich in unmittelbarer Nähe, kostenlose Parkplätze
-                stehen direkt am Haus zur Verfügung.
+                {locationText1}
               </p>
               <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-[17px]">
-                Trotz der verkehrsgünstigen Lage genießen Sie eine angenehme,
-                ruhige Atmosphäre. Der Bahnhof liegt nur wenige Gehminuten
-                entfernt – mit Regionalbahn und Bus erreichen Sie Lörrach, Basel und
-                Freiburg bequem.
+                {locationText2}
               </p>
               <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-[17px]">
-                Ideal für Geschäftsreisende und alle, die das Markgräflerland
-                und die nahe Umgebung erkunden möchten.
+                {locationText3}
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Block 3: Zimmer — text + image (Brecon section07) ── */}
+      {/* Block 3: Zimmer */}
       <section className="pb-[clamp(6rem,14vh,10rem)]">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
@@ -128,24 +142,17 @@ export default function UeberUns() {
                 Unsere Zimmer
               </p>
               <h3 className="text-[clamp(1.5rem,3vw,2.25rem)] font-serif text-[var(--color-primary)] mb-6 leading-tight">
-                Sechs Zimmer – mit allem was Sie brauchen
+                {roomsTitle}
               </h3>
               <div className="space-y-5">
                 <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-[17px]">
-                  Die Zimmer sind ca. 20 m² groß und als Einzel- oder
-                  Doppelzimmer buchbar. Einige Zimmer sind mit bis zu zwei
-                  weiteren Betten als Familienzimmer nutzbar. Einige haben einen
-                  Balkon.
+                  {roomsText1}
                 </p>
                 <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-[17px]">
-                  Im Haus stehen kostenloser Kaffee und Tee sowie ein
-                  Gemeinschaftskühlschrank bereit. Im hellen Aufenthaltsraum
-                  können Sie entspannt mit einer Tasse Kaffee oder Tee in den
-                  Tag starten.
+                  {roomsText2}
                 </p>
                 <p className="text-[var(--color-text)] font-light leading-relaxed text-base md:text-[17px]">
-                  Frühstück bieten wir nicht an – dafür sind Bäckerei, Metzgerei
-                  und Supermärkte fußläufig erreichbar.
+                  {roomsText3}
                 </p>
               </div>
             </div>

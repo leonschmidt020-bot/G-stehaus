@@ -1,6 +1,11 @@
-import RoomGrid from "@/components/rooms/RoomGrid";
+export const dynamic = "force-dynamic";
 
-export default function RoomsPage() {
+import RoomGrid from "@/components/rooms/RoomGrid";
+import { getRooms } from "@/lib/data/rooms";
+
+export default async function RoomsPage() {
+  const rooms = await getRooms();
+
   return (
     <>
       {/* Page Header */}
@@ -20,7 +25,7 @@ export default function RoomsPage() {
       {/* Room Grid */}
       <section className="py-[clamp(3rem,8vh,5rem)]">
         <div className="container mx-auto px-6">
-          <RoomGrid />
+          <RoomGrid rooms={rooms} />
         </div>
       </section>
     </>

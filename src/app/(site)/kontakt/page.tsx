@@ -1,7 +1,13 @@
+export const dynamic = "force-dynamic";
+
 import { Suspense } from "react";
 import ContactForm from "@/components/ContactForm";
+import { getSettings } from "@/lib/data/settings";
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const settings = await getSettings();
+  const s = Object.fromEntries(settings.map((s) => [s.key, s.value]));
+
   return (
     <>
       {/* Page Header */}
@@ -28,15 +34,15 @@ export default function ContactPage() {
                   <li>
                     <h3 className="font-medium text-[var(--color-primary)] text-sm mb-1">Adresse</h3>
                     <p className="text-[var(--color-text)] text-sm font-light">
-                      Haltinger Weg 3, 79591 Eimeldingen
+                      {s.contact_address}
                     </p>
                   </li>
 
                   <li>
                     <h3 className="font-medium text-[var(--color-primary)] text-sm mb-1">Telefon</h3>
                     <p className="text-[var(--color-text)] text-sm font-light">
-                      <a href="tel:+4976214248233" className="hover:text-sage transition-colors">
-                        +49 (0) 7621 4 24 82 33
+                      <a href={`tel:${s.contact_phone_raw}`} className="hover:text-sage transition-colors">
+                        {s.contact_phone}
                       </a>
                     </p>
                   </li>
@@ -44,8 +50,8 @@ export default function ContactPage() {
                   <li>
                     <h3 className="font-medium text-[var(--color-primary)] text-sm mb-1">E-Mail</h3>
                     <p className="text-[var(--color-text)] text-sm font-light">
-                      <a href="mailto:info@dasgaestehaus-eimeldingen.de" className="hover:text-sage transition-colors">
-                        info@dasgaestehaus-eimeldingen.de
+                      <a href={`mailto:${s.contact_email}`} className="hover:text-sage transition-colors">
+                        {s.contact_email}
                       </a>
                     </p>
                   </li>
@@ -53,9 +59,8 @@ export default function ContactPage() {
                   <li>
                     <h3 className="font-medium text-[var(--color-primary)] text-sm mb-1">Check-in / Check-out</h3>
                     <p className="text-[var(--color-text)] text-sm font-light">
-                      Check-in täglich von 16:00 bis 20:00 Uhr · Check-out bis 10:00 Uhr
+                      Check-in {s.checkin_time} · Check-out {s.checkout_time}
                     </p>
-
                   </li>
 
                   <li>

@@ -2,39 +2,13 @@
 
 import { useRef, useEffect } from "react";
 import { gsap } from "@/lib/gsap";
+import type { Feature } from "@/lib/supabase/types";
 
-const features = [
-  {
-    title: "Kostenloser Parkplatz",
-    text: "Direkt vor dem Haus.",
-  },
-  {
-    title: "Kaffee & Tee",
-    text: "Starten Sie mit einer Tasse Kaffee oder Tee in den Tag. Kostenfreie Nutzung.",
-  },
-  {
-    title: "Kein Frühstück, aber alles nah",
-    text: "Frühstück bieten wir nicht an, dafür sind Bäckerei, Metzgerei und Supermarkt fußläufig erreichbar. Im Haus stehen Kaffee, Tee und ein Kühlschrank bereit.",
-  },
-  {
-    title: "Klimaanlage & WLAN",
-    text: "Alle Zimmer haben eine Klimaanlage und kostenloses WLAN. Dazu Flachbild-TV und eigenes Bad mit ebenerdiger Dusche.",
-  },
-  {
-    title: "Check-in Zeiten",
-    text: "Von 16 Uhr bis 20 Uhr. Oder nach vorheriger Vereinbarung.",
-  },
-  {
-    title: "Bezahlung",
-    text: "Direkt beim Check-in bar, per EC-Karte oder Kreditkarte.",
-  },
-  {
-    title: "Haustiere",
-    text: "Übernachtungen mit Haustieren sind leider nicht möglich.",
-  },
-];
+interface FeaturesProps {
+  features: Feature[];
+}
 
-export default function Features() {
+export default function Features({ features }: FeaturesProps) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -74,7 +48,6 @@ export default function Features() {
       className="py-[clamp(6rem,14vh,10rem)] bg-[var(--surface)]"
     >
       <div className="container mx-auto px-6 max-w-6xl">
-        {/* Editorial two-column: heading left, content right (Brecon section04 style) */}
         <div className="grid md:grid-cols-[2fr_3fr] gap-8 md:gap-20 items-start">
           <div data-feature>
             <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-serif text-[var(--color-primary)] tracking-tight leading-tight">
@@ -83,8 +56,8 @@ export default function Features() {
           </div>
 
           <div className="grid sm:grid-cols-2 gap-x-14 gap-y-10">
-            {features.map((f, i) => (
-              <div key={i} data-feature>
+            {features.map((f) => (
+              <div key={f.id} data-feature>
                 <h3 className="text-[15px] font-medium text-[var(--color-primary)] mb-2 tracking-wide">
                   {f.title}
                 </h3>

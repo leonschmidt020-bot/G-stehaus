@@ -3,13 +3,6 @@ import { Noto_Serif, Montserrat } from "next/font/google";
 import "./globals.css";
 import React from "react";
 
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
-import GrainOverlay from "@/components/ui/GrainOverlay";
-import BackgroundCurves from "@/components/ui/BackgroundCurves";
-import FloatingCallButton from "@/components/ui/FloatingCallButton";
-
 const notoSerif = Noto_Serif({
   subsets: ["latin"],
   variable: "--font-playfair",
@@ -56,14 +49,7 @@ export default function RootLayout({
       className={`${notoSerif.variable} ${montserrat.variable} dark scroll-smooth`}
     >
       <body className="antialiased flex flex-col min-h-screen bg-[var(--background)] text-[var(--foreground)]">
-        <SmoothScrollProvider>
-          <BackgroundCurves />
-          <GrainOverlay />
-          <Header />
-          <main className="flex-grow pt-20">{children}</main>
-          <Footer />
-          <FloatingCallButton />
-        </SmoothScrollProvider>
+        {children}
       </body>
     </html>
   );

@@ -19,6 +19,9 @@ interface RoomDetailProps {
   images: { src: string; alt: string }[];
   amenities: string[];
   popular?: boolean;
+  checkinTime?: string;
+  checkoutTime?: string;
+  paymentMethods?: string;
 }
 
 export default function RoomDetail({
@@ -33,6 +36,9 @@ export default function RoomDetail({
   images,
   amenities,
   popular,
+  checkinTime,
+  checkoutTime,
+  paymentMethods,
 }: RoomDetailProps) {
   const pageRef = useRef<HTMLDivElement>(null);
 
@@ -68,7 +74,7 @@ export default function RoomDetail({
 
   return (
     <div ref={pageRef}>
-      {/* ── Hero image ── */}
+      {/* Hero image */}
       <section className="relative w-full h-[60vh] min-h-[350px] max-h-[650px] -mt-20">
         <Image
           src={images[0].src}
@@ -80,7 +86,6 @@ export default function RoomDetail({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-transparent to-black/20" />
 
-        {/* Back link */}
         <div className="absolute top-28 left-6 z-10">
           <Link
             href="/zimmer"
@@ -92,7 +97,7 @@ export default function RoomDetail({
         </div>
       </section>
 
-      {/* ── Title + meta bar ── */}
+      {/* Title + meta bar */}
       <section className="pt-8 pb-[clamp(3rem,6vh,5rem)]">
         <div className="container mx-auto px-6 max-w-6xl">
           <div
@@ -122,7 +127,6 @@ export default function RoomDetail({
             </div>
           </div>
 
-          {/* Quick facts */}
           <div
             data-reveal
             className="flex flex-wrap gap-6 mt-8 pt-8 border-t border-[var(--color-primary)]/10"
@@ -149,7 +153,7 @@ export default function RoomDetail({
         </div>
       </section>
 
-      {/* ── Description — editorial two-column split ── */}
+      {/* Description */}
       <section className="pb-[clamp(4rem,10vh,8rem)]">
         <div className="container mx-auto px-6 max-w-6xl">
           <div
@@ -176,7 +180,7 @@ export default function RoomDetail({
         </div>
       </section>
 
-      {/* ── Image gallery — two remaining images side by side ── */}
+      {/* Image gallery */}
       {images.length > 1 && (
         <section className="pb-[clamp(4rem,10vh,8rem)]">
           <div className="container mx-auto px-6 max-w-6xl">
@@ -203,7 +207,7 @@ export default function RoomDetail({
         </section>
       )}
 
-      {/* ── Amenities grid ── */}
+      {/* Amenities grid */}
       <section className="pb-[clamp(4rem,10vh,8rem)] bg-[var(--surface)]">
         <div className="container mx-auto px-6 max-w-6xl py-[clamp(4rem,10vh,8rem)]">
           <div
@@ -233,10 +237,14 @@ export default function RoomDetail({
         </div>
       </section>
 
-      {/* ── Check-in / Check-out / Bezahlung ── */}
-      <CheckInInfo />
+      {/* Check-in / Check-out / Bezahlung */}
+      <CheckInInfo
+        checkinTime={checkinTime}
+        checkoutTime={checkoutTime}
+        paymentMethods={paymentMethods}
+      />
 
-      {/* ── CTA ── */}
+      {/* CTA */}
       <section className="py-[clamp(4rem,10vh,8rem)]">
         <div className="container mx-auto px-6 max-w-6xl text-center">
           <div data-reveal>

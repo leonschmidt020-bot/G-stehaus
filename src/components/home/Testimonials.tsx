@@ -2,29 +2,15 @@
 
 import { useRef, useEffect } from "react";
 import { gsap } from "@/lib/gsap";
+import type { Testimonial } from "@/lib/supabase/types";
 
-const reviews = [
-  {
-    text: "Schönes hochwertiges Hotel, bzw. Gästehaus. Die Chefin gibt sich größte Mühe die Gäste gemütlich und zufrieden unterzubringen. Sehr sauber gehaltene große Zimmer mit moderner Ausstattung.",
-    name: "Roman Tropmann",
-    source: "Google",
-    date: "Local Guide",
-  },
-  {
-    text: "Ich war im Gästehaus Eimeldingen und es war sehr schön. Freundliche Gastgeberin, schönes, sauberes Zimmer. Liebe Grüße aus Sachsen!",
-    name: "Tim Scholz",
-    source: "Google",
-    date: "Local Guide",
-  },
-  {
-    text: "Sehr sauber. Gut gelegen für Ausflüge in die Schweiz.",
-    name: "Bernd Grimm",
-    source: "Google",
-    date: "Local Guide",
-  },
-];
+interface TestimonialsProps {
+  testimonials: Testimonial[];
+  rating: string;
+  summary: string;
+}
 
-export default function Testimonials() {
+export default function Testimonials({ rating, summary }: TestimonialsProps) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -59,7 +45,6 @@ export default function Testimonials() {
   return (
     <section ref={sectionRef} className="py-[clamp(6rem,14vh,10rem)]">
       <div className="container mx-auto px-6 max-w-6xl">
-        {/* Editorial two-column: heading left, reviews right */}
         <div className="grid md:grid-cols-[2fr_3fr] gap-8 md:gap-20 items-start">
           <div data-review>
             <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-serif text-[var(--color-primary)] tracking-tight leading-tight mb-3">
@@ -67,13 +52,13 @@ export default function Testimonials() {
             </h2>
             <div className="flex items-center gap-2 text-sm text-earth-muted">
               <span className="text-sage">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-              <span>4.8 / 5 auf Google</span>
+              <span>{rating}</span>
             </div>
           </div>
 
           <div data-review>
             <p className="text-[var(--color-primary)] font-serif italic text-base md:text-lg leading-relaxed">
-              Unsere Gäste schätzen besonders die ruhige Lage, die Sauberkeit und die persönliche Atmosphäre.
+              {summary}
             </p>
           </div>
         </div>

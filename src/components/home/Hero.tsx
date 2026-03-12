@@ -5,12 +5,17 @@ import Link from "next/link";
 import { useRef, useEffect } from "react";
 import { gsap } from "@/lib/gsap";
 
+interface HeroProps {
+  titleLine1: string;
+  titleLine2: string;
+  titleLine3: string;
+  subtitle: string;
+}
 
-export default function Hero() {
+export default function Hero({ titleLine1, titleLine2, titleLine3, subtitle }: HeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const captionRef = useRef<HTMLDivElement>(null);
-
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
@@ -53,7 +58,6 @@ export default function Hero() {
           }
         );
       }
-
     }, sectionRef);
 
     return () => ctx.revert();
@@ -64,7 +68,6 @@ export default function Hero() {
       ref={sectionRef}
       className="relative h-[100vh] min-h-[600px] w-full flex items-end -mt-20"
     >
-      {/* Background image */}
       <div className="absolute inset-0 overflow-hidden">
         <div ref={imageRef} className="w-full h-[120%] -mt-[10%]">
           <Image
@@ -78,10 +81,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
 
-      {/* Centered caption at bottom */}
       <div
         ref={captionRef}
         className="relative z-10 w-full pb-[clamp(3rem,8vh,6rem)] px-6"
@@ -91,21 +92,18 @@ export default function Hero() {
             data-anim
             className="font-serif text-[clamp(3rem,8vw,6rem)] leading-[0.95] tracking-tight text-white mb-8"
           >
-            <span className="block">Ankommen.</span>
+            <span className="block">{titleLine1}</span>
             <span className="block italic font-light text-white/90">
-              Durchatmen.
+              {titleLine2}
             </span>
-            <span className="block">Wohlfühlen.</span>
+            <span className="block">{titleLine3}</span>
           </h1>
 
           <p
             data-anim
             className="text-white/75 text-base md:text-lg font-light max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            Kleines, familiengeführtes Gästehaus in Eimeldingen – ruhig gelegen
-            und dennoch direkt an der A5. Nur wenige Minuten von Basel entfernt,
-            ideal für Geschäftsreisende, Kurzaufenthalte im Dreiländereck oder
-            als Zwischenstopp auf Ihrer Reise.
+            {subtitle}
           </p>
 
           <div

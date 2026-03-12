@@ -5,48 +5,13 @@ import Link from "next/link";
 import { useRef, useEffect } from "react";
 import { gsap } from "@/lib/gsap";
 import OrganicButton from "@/components/ui/OrganicButton";
+import type { Room } from "@/lib/supabase/types";
 
-const rooms = [
-  {
-    title: "Einzelzimmer",
-    slug: "einzelzimmer",
-    price: "ab 68 €",
-    priceNote: "pro Nacht",
-    guests: "1 Person",
-    size: "ca. 20 m²",
-    image: "/images/einzelzimmer-neu.jpg",
-    description:
-      "Ruhig und funktional. Bequemes Bett, Klimaanlage, Flachbild-TV, eigenes Bad mit ebenerdiger Dusche und kostenloses WLAN. Einige Zimmer mit Balkon.",
-    extras: ["Klimaanlage", "Teilw. Balkon", "Ebenerdige Dusche"],
-  },
-  {
-    title: "Doppelzimmer",
-    slug: "doppelzimmer",
-    price: "ab 90 €",
-    priceNote: "pro Nacht",
-    guests: "2 Personen",
-    size: "ca. 20 m²",
-    image: "/images/doppelzimmer.jpg",
-    description:
-      "Gemütlich zu zweit. Alle Zimmer mit Klimaanlage, Flachbild-TV, eigenem Bad und WLAN. Einige Zimmer mit Balkon.",
-    extras: ["Klimaanlage", "Teilw. Balkon", "Ebenerdige Dusche"],
-    popular: true,
-  },
-  {
-    title: "Familienzimmer",
-    slug: "familienzimmer",
-    price: "auf Anfrage",
-    priceNote: "auf Anfrage",
-    guests: "Familien",
-    size: "ca. 20 m²",
-    image: "/images/zimmer-kissen-blau.jpg",
-    description:
-      "Für Familien bieten wir individuelle Lösungen an. Sprechen Sie uns einfach an, wir finden die passende Zimmerkombination.",
-    extras: ["Klimaanlage", "Individuell", "Ebenerdige Dusche"],
-  },
-];
+interface RoomGridProps {
+  rooms: Room[];
+}
 
-export default function RoomGrid() {
+export default function RoomGrid({ rooms }: RoomGridProps) {
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -85,9 +50,9 @@ export default function RoomGrid() {
       ref={gridRef}
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
     >
-      {rooms.map((room, i) => (
+      {rooms.map((room) => (
         <div
-          key={i}
+          key={room.id}
           data-room-card
           className={`rounded-[var(--radius-xl)] overflow-hidden group flex flex-col transition-shadow duration-500 hover:shadow-premium-ui border border-[var(--color-primary)]/8 bg-[var(--surface)] ${room.popular ? "ring-1 ring-sage/20" : ""
             }`}
@@ -97,7 +62,7 @@ export default function RoomGrid() {
             className="relative h-64 overflow-hidden block"
           >
             <Image
-              src={room.image}
+              src={room.card_image}
               alt={room.title}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -120,7 +85,7 @@ export default function RoomGrid() {
               </h3>
             </Link>
             <p className="text-[var(--color-text)]/60 text-xs mb-4">
-              {room.guests} · {room.size} · {room.priceNote}
+              {room.guests} · {room.size} · {room.price_note}
             </p>
 
             <p className="text-[var(--color-text)] text-sm font-light leading-relaxed mb-5 flex-grow">
