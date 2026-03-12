@@ -76,6 +76,9 @@ export default function Footer() {
           <Link href="/datenschutz" className="hover:text-cream/50 transition-colors">
             Datenschutz
           </Link>
+          <Link href="/admin/login" className="hover:text-cream/50 transition-colors">
+            Login
+          </Link>
         </div>
       </div>
     </footer>
