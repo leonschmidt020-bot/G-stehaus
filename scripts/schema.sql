@@ -66,6 +66,21 @@ CREATE TABLE IF NOT EXISTS site_settings (
   sort_order INTEGER DEFAULT 0
 );
 
+-- Enable RLS on all tables (public read, write only via service_role key)
+ALTER TABLE rooms ENABLE ROW LEVEL SECURITY;
+ALTER TABLE room_images ENABLE ROW LEVEL SECURITY;
+ALTER TABLE features ENABLE ROW LEVEL SECURITY;
+ALTER TABLE testimonials ENABLE ROW LEVEL SECURITY;
+ALTER TABLE nearby_spots ENABLE ROW LEVEL SECURITY;
+ALTER TABLE site_settings ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Allow public read access" ON rooms FOR SELECT USING (true);
+CREATE POLICY "Allow public read access" ON room_images FOR SELECT USING (true);
+CREATE POLICY "Allow public read access" ON features FOR SELECT USING (true);
+CREATE POLICY "Allow public read access" ON testimonials FOR SELECT USING (true);
+CREATE POLICY "Allow public read access" ON nearby_spots FOR SELECT USING (true);
+CREATE POLICY "Allow public read access" ON site_settings FOR SELECT USING (true);
+
 -- Create storage bucket for images
 INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 VALUES (
