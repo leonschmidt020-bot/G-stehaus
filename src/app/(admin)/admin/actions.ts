@@ -5,6 +5,19 @@ import { redirect } from "next/navigation";
 import { login, logout, verifySession } from "@/lib/auth";
 import { createServerClient } from "@/lib/supabase/client";
 
+function safeJsonParse(value: string | null, fallback: unknown[] = []): unknown {
+  try {
+    const parsed = JSON.parse(value || JSON.stringify(fallback));
+    if (!Array.isArray(parsed)) return fallback;
+    return parsed;
+  } catch {
+    return fallback;
+  }
+}
+
+const ALLOWED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp"];
+const MAX_IMAGE_SIZE = 5 * 1024 * 1024; // 5MB
+
 // --- Auth ---
 
 export async function loginAction(_prev: unknown, formData: FormData) {
@@ -49,8 +62,8 @@ export async function updateRoom(formData: FormData) {
     detail_details: formData.get("detail_details") as string,
     card_image: formData.get("card_image") as string,
     popular: formData.get("popular") === "on",
-    extras: JSON.parse((formData.get("extras") as string) || "[]"),
-    amenities: JSON.parse((formData.get("amenities") as string) || "[]"),
+    extras: safeJsonParse(formData.get("extras") as string),
+    amenities: safeJsonParse(formData.get("amenities") as string),
   };
 
   const { error } = await supabase.from("rooms").update(data).eq("id", id);
@@ -66,7 +79,7 @@ export async function updateRoomImages(formData: FormData) {
   const supabase = createServerClient();
 
   const roomId = formData.get("room_id") as string;
-  const images = JSON.parse(formData.get("images") as string);
+  const images = safeJsonParse(formData.get("images") as string) as { src: string; alt: string }[];
 
   // Delete existing images for this room
   await supabase.from("room_images").delete().eq("room_id", roomId);
@@ -94,7 +107,7 @@ export async function updateFeatures(formData: FormData) {
   await requireAuth();
   const supabase = createServerClient();
 
-  const features = JSON.parse(formData.get("features") as string);
+  const features = safeJsonParse(formData.get("features") as string) as { title: string; text: string }[];
 
   // Delete all, then insert fresh
   await supabase.from("features").delete().neq("id", "00000000-0000-0000-0000-000000000000");
@@ -120,7 +133,7 @@ export async function updateTestimonials(formData: FormData) {
   await requireAuth();
   const supabase = createServerClient();
 
-  const testimonials = JSON.parse(formData.get("testimonials") as string);
+  const testimonials = safeJsonParse(formData.get("testimonials") as string) as { text: string; name: string; source: string }[];
 
   await supabase.from("testimonials").delete().neq("id", "00000000-0000-0000-0000-000000000000");
 
@@ -146,7 +159,7 @@ export async function updateNearbySpots(formData: FormData) {
   await requireAuth();
   const supabase = createServerClient();
 
-  const spots = JSON.parse(formData.get("spots") as string);
+  const spots = safeJsonParse(formData.get("spots") as string) as { name: string; walk_time: string; drive_time: string | null }[];
 
   await supabase.from("nearby_spots").delete().neq("id", "00000000-0000-0000-0000-000000000000");
 
@@ -172,7 +185,7 @@ export async function updateSettings(formData: FormData) {
   await requireAuth();
   const supabase = createServerClient();
 
-  const settings = JSON.parse(formData.get("settings") as string);
+  const settings = safeJsonParse(formData.get("settings") as string) as { key: string; value: string }[];
 
   for (const setting of settings) {
     const { error } = await supabase
@@ -195,7 +208,17 @@ export async function uploadImage(formData: FormData): Promise<{ url?: string; e
   const file = formData.get("file") as File;
   if (!file) return { error: "Keine Datei ausgewählt" };
 
-  const ext = file.name.split(".").pop();
+  if (!ALLOWED_IMAGE_TYPES.includes(file.type)) {
+    return { error: "Nur JPEG, PNG und WebP Dateien erlaubt" };
+  }
+  if (file.size > MAX_IMAGE_SIZE) {
+    return { error: "Datei darf maximal 5MB groß sein" };
+  }
+
+  const ext = file.name.split(".").pop()?.toLowerCase();
+  if (!ext || !["jpg", "jpeg", "png", "webp"].includes(ext)) {
+    return { error: "Ungültige Dateiendung" };
+  }
   const fileName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
   const filePath = `uploads/${fileName}`;
 

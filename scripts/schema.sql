@@ -95,12 +95,12 @@ VALUES (
 CREATE POLICY "Public read access" ON storage.objects
   FOR SELECT USING (bucket_id = 'images');
 
--- Allow authenticated uploads (we use service role key, so this is just a safety net)
+-- Storage write access restricted to service_role only
 CREATE POLICY "Service role upload" ON storage.objects
-  FOR INSERT WITH CHECK (bucket_id = 'images');
+  FOR INSERT TO service_role WITH CHECK (bucket_id = 'images');
 
 CREATE POLICY "Service role update" ON storage.objects
-  FOR UPDATE USING (bucket_id = 'images');
+  FOR UPDATE TO service_role USING (bucket_id = 'images');
 
 CREATE POLICY "Service role delete" ON storage.objects
-  FOR DELETE USING (bucket_id = 'images');
+  FOR DELETE TO service_role USING (bucket_id = 'images');
